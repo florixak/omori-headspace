@@ -1,6 +1,7 @@
 "use client";
 
 import { navLinks } from "@/constants";
+import useSpaceStore from "@/store/space-store";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,7 @@ const Header = () => {
   // TODO: Finish mobile menu implementation
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { space } = useSpaceStore();
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -39,7 +41,13 @@ const Header = () => {
       >
         <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-6 py-4">
           <div className="flex flex-row items-center gap-2">
-            <div className="border-2 border-transparent hover:bg-(--omori-purple) hover:border-(--omori-black) transition-colors duration-200">
+            <div
+              className={`border-2 border-transparent ${
+                space === "headspace"
+                  ? "hover:bg-(--omori-purple)"
+                  : "hover:bg-(--kel-orange)"
+              } hover:border-(--omori-black) transition-colors duration-200`}
+            >
               <Image
                 src="/mewo.webp"
                 alt="Omori Mewo Logo"
@@ -53,12 +61,12 @@ const Header = () => {
           <nav>
             <ul className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <li
+                <NavLink
                   key={link.href}
-                  className="px-4 py-2 text-sm border-2 border-transparent hover:bg-(--omori-purple) hover:border-(--omori-black) transition-colors duration-200"
-                >
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
+                  label={link.label}
+                  href={link.href}
+                  onClick={() => {}}
+                />
               ))}
             </ul>
             <div className="md:hidden">
@@ -78,19 +86,40 @@ const Header = () => {
         <div className="md:hidden fixed top-22 left-0 right-0 bg-(--omori-white) z-30">
           <ul className="flex flex-col items-center gap-1 py-4">
             {navLinks.map((link) => (
-              <li
+              <NavLink
                 key={link.href}
-                className="w-full text-center px-4 py-2 border-2 border-transparent hover:bg-(--omori-purple) hover:border-(--omori-black) transition-colors duration-200"
-              >
-                <Link href={link.href} onClick={() => setIsMenuOpen(false)}>
-                  {link.label}
-                </Link>
-              </li>
+                label={link.label}
+                href={link.href}
+                onClick={toggleMenu}
+              />
             ))}
           </ul>
         </div>
       )}
     </>
+  );
+};
+
+interface NavLinkProps {
+  label: string;
+  href: string;
+  onClick: () => void;
+}
+
+const NavLink = ({ label, href, onClick }: NavLinkProps) => {
+  const { space } = useSpaceStore();
+  return (
+    <li
+      className={`px-4 py-2 text-sm border-2 border-transparent ${
+        space === "headspace"
+          ? "hover:bg-(--omori-purple)"
+          : "hover:bg-(--kel-orange)"
+      } hover:border-(--omori-black) transition-colors duration-200`}
+    >
+      <Link href={href} onClick={onClick}>
+        {label}
+      </Link>
+    </li>
   );
 };
 
