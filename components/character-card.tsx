@@ -20,10 +20,11 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
 
   useGSAP(() => {
     if (!cardRef.current) return;
+    const element = cardRef.current;
 
-    gsap.from(cardRef.current, {
+    gsap.from(element, {
       scrollTrigger: {
-        trigger: cardRef.current,
+        trigger: element,
         start: "top 85%",
         toggleActions: "play none none reverse",
       },
@@ -36,9 +37,7 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
     });
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!cardRef.current) return;
-      const { left, top, width, height } =
-        cardRef.current.getBoundingClientRect();
+      const { left, top, width, height } = element.getBoundingClientRect();
       const x = e.clientX - left; // X position within the element
       const y = e.clientY - top; // Y position within the element
 
@@ -48,7 +47,7 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
       const rotateX = (y - centerY) / 20; // Adjust the divisor to control tilt intensity
       const rotateY = (centerX - x) / 20; // Adjust the divisor to control tilt intensity
 
-      gsap.to(cardRef.current, {
+      gsap.to(element, {
         rotationX: rotateX,
         rotationY: rotateY,
         duration: 0.3,
@@ -57,8 +56,7 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
     };
 
     const handleMouseLeave = () => {
-      if (!cardRef.current) return;
-      gsap.to(cardRef.current, {
+      gsap.to(element, {
         rotationX: 0,
         rotationY: 0,
         duration: 0.5,
@@ -66,15 +64,14 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
       });
     };
 
-    cardRef.current.addEventListener("mousemove", handleMouseMove);
-    cardRef.current.addEventListener("mouseleave", handleMouseLeave);
+    element.addEventListener("mousemove", handleMouseMove);
+    element.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      if (!cardRef.current) return;
-      cardRef.current.removeEventListener("mousemove", handleMouseMove);
-      cardRef.current.removeEventListener("mouseleave", handleMouseLeave);
+      element.removeEventListener("mousemove", handleMouseMove);
+      element.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [index]);
 
   return (
     <div
