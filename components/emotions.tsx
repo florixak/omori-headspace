@@ -21,7 +21,7 @@ const Emotions = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ref.current,
-        start: "top bottom-=100",
+        start: "top bottom",
         toggleActions: "play none none reverse",
       },
     });
@@ -46,7 +46,7 @@ const Emotions = () => {
         index * 0.1
       );
     });
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
