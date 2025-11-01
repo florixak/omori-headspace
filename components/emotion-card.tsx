@@ -96,7 +96,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           <p className="text-sm mb-3">{emotion.description}</p>
 
           <div className="space-y-2 text-sm">
-            <div className="rpg-border p-2">
+            <div>
               <span className="font-bold">💪 Strong Against:</span>{" "}
               <span
                 style={{
@@ -106,7 +106,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
                 {emotion.strong || "None"}
               </span>
             </div>
-            <div className="rpg-border p-2">
+            <div>
               <span className="font-bold">💔 Weak Against:</span>{" "}
               <span
                 style={{
