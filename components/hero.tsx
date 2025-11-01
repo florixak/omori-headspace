@@ -54,6 +54,7 @@ const Hero = () => {
           width={320}
           height={320}
           className="object-cover rpg-border breathe relative"
+          loading="eager"
         />
         <div className="w-0 h-0">
           {floatingEmojis.map((emoji) => (
@@ -113,8 +114,8 @@ const Hero = () => {
               : "bg-(--omori-white) text-(--omori-black) hover:bg-(--kel-orange)"
           } rpg-border hover:text-(--omori-white) transition-all duration-300 flex items-center gap-4`}
         >
-          {isHeadspace ? <Moon /> : <Sun />}
-          {isHeadspace ? "ENTER WHITE SPACE" : "RETURN TO HEADSPACE"}
+          {isHeadspace ? <Sun /> : <Moon />}
+          {isHeadspace ? "OPEN YOUR EYES" : "RETURN TO HEADSPACE"}
         </button>
       </div>
       <div className="absolute top-8 left-8 w-16 h-16 border-l-4 border-t-4 border-(--omori-black) opacity-20" />
