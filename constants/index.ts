@@ -256,7 +256,7 @@ const emotions: Emotion[] = [
     effect: "No effect",
     description: "Feeling indifferent. Nothing seems to matter.",
     imgSrc: "/emotions/neutral.webp",
-    position: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+    position: "top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2",
     strong: null,
     weak: null,
   },
