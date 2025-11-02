@@ -101,6 +101,21 @@
   background: var(--omori-purple);
 }
 
+.emotions-bg {
+  position: relative;
+  z-index: 0;
+  background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(245, 245, 245, 0.8) 100%
+    ),
+    url("/emotions-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+}
+
 .pixel-corners {
   clip-path: polygon(
     0 8px,
