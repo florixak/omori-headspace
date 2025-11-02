@@ -72,7 +72,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           <h3 style={textColor} className="font-bold text-lg pixel-text">
             {emotion.emoji} {emotion.name}
           </h3>
-          <div className="rpg-border bg-black text-(--omori-white) px-2 py-1 text-xs mt-1 inline-block">
+          <div className="bg-black text-(--omori-white) px-2 py-1 text-xs mt-1 inline-block">
             {emotion.effect}
           </div>
         </div>
