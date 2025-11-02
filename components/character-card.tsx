@@ -19,7 +19,10 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
   const textColor = { color: character.color };
 
   useGSAP(() => {
-    if (!cardRef.current) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!cardRef.current || prefersReducedMotion) return;
     const element = cardRef.current;
 
     gsap.from(element, {
@@ -91,6 +94,7 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
           className={`mb-4 rounded-lg rpg-border`}
           width={180}
           height={180}
+          loading="lazy"
         />
         <h3 className="mb-2">{character.name}</h3>
         <div

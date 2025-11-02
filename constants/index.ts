@@ -1,9 +1,13 @@
 import {
+  Flame,
   Flower,
+  Frown,
+  Ghost,
   Heart,
   Leaf,
   LucideProps,
   Shield,
+  Smile,
   Star,
   Zap,
 } from "lucide-react";
@@ -39,6 +43,21 @@ export interface SpaceCharacter {
 interface Character {
   whitespace: SpaceCharacter[];
   realWorld: SpaceCharacter[];
+}
+
+export interface Emotion {
+  name: "NEUTRAL" | "HAPPY" | "SAD" | "ANGRY";
+  emoji: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
+  effect: string;
+  color: `var(--${string})`;
+  description: string;
+  imgSrc: `/emotions/${string}`;
+  position: string;
+  strong: "HAPPY" | "SAD" | "ANGRY" | null;
+  weak: "HAPPY" | "SAD" | "ANGRY" | null;
 }
 
 const navLinks: NavLink[] = [
@@ -228,4 +247,55 @@ const characters: Character = {
   ],
 };
 
-export { navLinks, floatingEmojis, characters };
+const emotions: Emotion[] = [
+  {
+    name: "NEUTRAL",
+    color: "var(--neutral-gray)",
+    emoji: "😐",
+    icon: Ghost,
+    effect: "No effect",
+    description: "Feeling indifferent. Nothing seems to matter.",
+    imgSrc: "/emotions/neutral.webp",
+    position: "top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2",
+    strong: null,
+    weak: null,
+  },
+  {
+    name: "HAPPY",
+    color: "var(--happy-yellow)",
+    emoji: "😊",
+    icon: Smile,
+    effect: "+1 SPEED, -1 HIT RATE",
+    description: "Feeling joyful and energetic! Everything seems brighter.",
+    imgSrc: "/emotions/happy.webp",
+    position: "-top-40 left-1/2 -translate-x-1/2",
+    strong: "ANGRY",
+    weak: "SAD",
+  },
+  {
+    name: "SAD",
+    color: "var(--sad-blue)",
+    emoji: "😢",
+    icon: Frown,
+    effect: "+1 DEFENSE, -1 SPEED",
+    description: "Feeling down and sluggish. The world feels heavy.",
+    imgSrc: "/emotions/sad.webp",
+    position: "-bottom-30 -left-40",
+    strong: "HAPPY",
+    weak: "ANGRY",
+  },
+  {
+    name: "ANGRY",
+    color: "var(--angry-red)",
+    emoji: "😡",
+    icon: Flame,
+    effect: "+1 ATTACK, -1 DEFENSE",
+    description: "Filled with rage! Ready to lash out at anything.",
+    imgSrc: "/emotions/angry.webp",
+    position: "-bottom-30 -right-40",
+    strong: "SAD",
+    weak: "HAPPY",
+  },
+];
+
+export { navLinks, floatingEmojis, characters, emotions };
