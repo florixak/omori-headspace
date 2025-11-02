@@ -11,6 +11,7 @@ import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 
 const Emotions = () => {
+  //TODO: Add Mewo with story bubble to info user about hovering / clicking
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
