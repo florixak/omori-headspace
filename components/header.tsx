@@ -48,12 +48,14 @@ const Header = () => {
                   : "hover:bg-(--kel-orange)"
               } hover:border-(--omori-black) transition-colors duration-200`}
             >
-              <Image
-                src="/mewo.webp"
-                alt="Omori Mewo Logo"
-                width={50}
-                height={50}
-              />
+              <Link href="/">
+                <Image
+                  src="/mewo.webp"
+                  alt="Omori Mewo Logo"
+                  width={50}
+                  height={50}
+                />
+              </Link>
             </div>
 
             <span className="text-xl pixel-text">OMORI FAN SITE</span>
