@@ -19,7 +19,7 @@ interface EmotionCardProps {
 const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const detailsRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLButtonElement>(null);
 
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
@@ -49,7 +49,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   };
 
   return (
-    <div
+    <button
       ref={cardRef}
       className={`
         rpg-border bg-(--omori-white) w-full
@@ -119,7 +119,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
