@@ -51,9 +51,9 @@ const Emotions = () => {
   return (
     <section
       id="emotions"
-      className="min-h-screen flex items-center justify-center overflow-hidden px-6"
+      className="min-h-screen flex items-center justify-center overflow-hidden px-6 emotions-bg py-12"
     >
-      <div className="max-w-7xl mx-auto space-y-20 md:space-y-52 pb-12">
+      <div className="max-w-7xl mx-auto space-y-20 md:space-y-52">
         <div className="text-center">
           <div className="battle-box inline-block mb-6">
             <span className="text-sm opacity-70"> /| EMOTIONS |\ </span>
@@ -84,6 +84,9 @@ const Emotions = () => {
             <MobileEmotionCard key={emotion.name} emotion={emotion} />
           ))}
         </div>
+        <p className="text-center text-sm opacity-70">
+          There are more emotions like AFRAID, ENRAGED, ... to discover!
+        </p>
       </div>
     </section>
   );
