@@ -18,7 +18,6 @@ import {
   Droplets,
   Fish,
   Eclipse,
-  Home,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -63,7 +62,10 @@ export interface Emotion {
   effect: string;
   color: `var(--${string})`;
   description: string;
-  imgSrc: `/emotions/${string}`;
+  imgSrc: {
+    headspace: `/emotions/${string}.webp`;
+    realWorld: `/emotions/${string}-real.webp`;
+  };
   position: string;
   strong: "HAPPY" | "SAD" | "ANGRY" | null;
   weak: "HAPPY" | "SAD" | "ANGRY" | null;
@@ -274,7 +276,10 @@ const emotions: Emotion[] = [
     icon: Ghost,
     effect: "No effect",
     description: "Feeling indifferent. Nothing seems to matter.",
-    imgSrc: "/emotions/neutral.webp",
+    imgSrc: {
+      headspace: "/emotions/neutral.webp",
+      realWorld: "/emotions/neutral-real.webp",
+    },
     position: "top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2",
     strong: null,
     weak: null,
@@ -286,7 +291,10 @@ const emotions: Emotion[] = [
     icon: Smile,
     effect: "+1 SPEED, -1 HIT RATE",
     description: "Feeling joyful and energetic! Everything seems brighter.",
-    imgSrc: "/emotions/happy.webp",
+    imgSrc: {
+      headspace: "/emotions/happy.webp",
+      realWorld: "/emotions/happy-real.webp",
+    },
     position: "-top-40 left-1/2 -translate-x-1/2",
     strong: "ANGRY",
     weak: "SAD",
@@ -298,7 +306,10 @@ const emotions: Emotion[] = [
     icon: Frown,
     effect: "+1 DEFENSE, -1 SPEED",
     description: "Feeling down and sluggish. The world feels heavy.",
-    imgSrc: "/emotions/sad.webp",
+    imgSrc: {
+      headspace: "/emotions/sad.webp",
+      realWorld: "/emotions/sad-real.webp",
+    },
     position: "-bottom-30 -left-40",
     strong: "HAPPY",
     weak: "ANGRY",
@@ -310,7 +321,10 @@ const emotions: Emotion[] = [
     icon: Flame,
     effect: "+1 ATTACK, -1 DEFENSE",
     description: "Filled with rage! Ready to lash out at anything.",
-    imgSrc: "/emotions/angry.webp",
+    imgSrc: {
+      headspace: "/emotions/angry.webp",
+      realWorld: "/emotions/angry-real.webp",
+    },
     position: "-bottom-30 -right-40",
     strong: "SAD",
     weak: "HAPPY",
@@ -398,14 +412,6 @@ const locations: Location[] = [
     emoji: "⚫",
     icon: Eclipse,
   },
-  /*{
-    name: "FARAWAY TOWN",
-    description:
-      "The real-world neighborhood where Sunny lives. A peaceful suburban town with hidden emotional weight.",
-    imgSrc: "/locations/faraway-town.webp",
-    emoji: "🏘️",
-    icon: Home,
-  },*/
 ];
 
 export { navLinks, floatingEmojis, characters, emotions, locations };
