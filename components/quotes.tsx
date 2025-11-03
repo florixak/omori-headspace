@@ -36,7 +36,7 @@ const Quotes = () => {
   return (
     <section
       id="quotes"
-      className="min-h-screen flex items-center justify-center px-6 pb-12"
+      className="min-h-screen flex items-center justify-center px-6"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center my-16">
@@ -56,24 +56,46 @@ const Quotes = () => {
         <div className="flex items-center justify-between gap-4 mt-6">
           <button
             onClick={handlePreviousQuote}
-            className={`group cursor-pointer relative px-8 py-4 ${
+            aria-label="Previous Quote"
+            className={`group cursor-pointer relative px-4 sm:px-8 py-4 w-auto sm:w-36 ${
               isHeadspace
                 ? "bg-(--omori-black) text-(--omori-white) hover:bg-(--omori-purple)"
                 : "bg-(--omori-white) text-(--omori-black) hover:bg-(--kel-orange)"
             } rpg-border hover:text-(--omori-white) transition-all duration-300 flex items-center gap-4`}
           >
             <ArrowRightIcon className="rotate-180" />
-            PREVIOUS
+            <span className="hidden sm:block">PREVIOUS</span>
           </button>
+          <div className="gap-2 flex">
+            {quotes.map((_, index) => (
+              <button
+                key={index}
+                aria-label={`Select Quote ${index + 1}`}
+                aria-current={index === currentQuote ? "true" : "false"}
+                onClick={() => setCurrentQuote(index)}
+                className={`w-3 h-3 border-2 border-(--omori-black) transition-all duration-300 ${
+                  index === currentQuote
+                    ? `${
+                        isHeadspace
+                          ? "bg-(--omori-purple)"
+                          : "bg-(--kel-orange)"
+                      } scale-125`
+                    : "bg-(--omori-white) hover:bg-(--omori-gray)"
+                }`}
+              />
+            ))}
+          </div>
+
           <button
             onClick={handleNextQuote}
-            className={`group cursor-pointer relative px-8 py-4 ${
+            aria-label="Next Quote"
+            className={`group cursor-pointer relative px-4 sm:px-8 py-4 w-auto sm:w-36 ${
               isHeadspace
                 ? "bg-(--omori-black) text-(--omori-white) hover:bg-(--omori-purple)"
                 : "bg-(--omori-white) text-(--omori-black) hover:bg-(--kel-orange)"
             } rpg-border hover:text-(--omori-white) transition-all duration-300 flex items-center gap-4`}
           >
-            NEXT
+            <span className="hidden sm:block">NEXT</span>
             <ArrowRightIcon />
           </button>
         </div>
