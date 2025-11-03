@@ -1,10 +1,10 @@
 "use client";
 
-import type { Location as LocationCard } from "@/constants";
+import type { Location } from "@/constants";
 import Image from "next/image";
 
 interface LocationProps {
-  location: LocationCard;
+  location: Location;
 }
 
 const MobileLocationCard = ({ location }: LocationProps) => {
