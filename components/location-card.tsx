@@ -19,7 +19,8 @@ const MobileLocationCard = ({ location }: LocationProps) => {
           fill
           className="object-cover pixel-corners"
           style={{ borderRadius: "12px" }}
-          sizes="(max-width: 600px) 100vw, 400px"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, 672px"
         />
       </div>
 
@@ -50,6 +51,7 @@ const LocationCard = ({ location }: LocationProps) => {
             fill
             className="object-cover pixel-corners"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, 672px"
           />
         </div>
 
