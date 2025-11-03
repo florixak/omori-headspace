@@ -81,6 +81,12 @@ export interface Location {
   >;
 }
 
+export interface Quote {
+  text: string;
+  author: string;
+  context: string;
+}
+
 const navLinks: NavLink[] = [
   { label: "CHARACTERS", href: "#characters" },
   { label: "EMOTIONS", href: "#emotions" },
@@ -414,4 +420,67 @@ const locations: Location[] = [
   },
 ];
 
-export { navLinks, floatingEmojis, characters, emotions, locations };
+const quotes: Quote[] = [
+  {
+    text: "Welcome to White Space. You've been living here for as long as you can remember.",
+    author: "Omori",
+    context:
+      "The very first line of the game, setting the surreal and isolated tone of Omori's headspace.",
+  },
+  {
+    text: "Everything is going to be okay.",
+    author: "Mari",
+    context:
+      "A recurring comforting phrase from Mari, often appearing during moments of distress or reflection, both in Headspace and in flashbacks.",
+  },
+  {
+    text: "When I flex, I feel my best!",
+    author: "Pluto",
+    context:
+      "Said by Pluto (Expanded) to Kel in the Headspace, showcasing Pluto's self-confidence and unique personality.",
+  },
+  {
+    text: "You are not alone.",
+    author: "Basil",
+    context:
+      "Basil says this to Sunny during the 'Hikikomori' route's ending, offering a message of hope and companionship.",
+  },
+  {
+    text: "Even if you fall, I'll be there to catch you.",
+    author: "Mari",
+    context:
+      "A poignant line from Mari, often associated with her supportive and protective nature, particularly during Sunny's past struggles.",
+  },
+  {
+    text: "Let's just rest for a bit...",
+    author: "Mari",
+    context:
+      "Mari's frequent suggestion during the real-world segments of the game, often preceding a save point or a moment of quiet reflection.",
+  },
+  {
+    text: "A promise is a promise, after all.",
+    author: "Sunny",
+    context:
+      "Spoken by Sunny during the 'good' ending, signifying his resolve to face the truth and move forward.",
+  },
+  {
+    text: "The truth hurts, doesn't it?",
+    author: "Something",
+    context:
+      "Heard during critical moments when Sunny confronts his trauma, usually from the manifestation of 'Something'.",
+  },
+  {
+    text: "You loved her, didn't you?",
+    author: "Omori",
+    context:
+      "Omori's direct and challenging question to Sunny during their final confrontation, forcing Sunny to acknowledge his feelings for Mari.",
+  },
+  {
+    text: "I... I have to tell you something.",
+    author: "Sunny",
+    context:
+      "The climactic line from Sunny at the very end of the 'good' ending, indicating his decision to confess the truth to his friends.",
+  },
+];
+
+export { navLinks, floatingEmojis, characters, emotions, locations, quotes };
