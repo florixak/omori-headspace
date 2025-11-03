@@ -10,6 +10,14 @@ import {
   Smile,
   Star,
   Zap,
+  Moon,
+  Trees,
+  Castle,
+  Bug,
+  Palmtree,
+  Droplets,
+  Fish,
+  Eclipse,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -54,10 +62,23 @@ export interface Emotion {
   effect: string;
   color: `var(--${string})`;
   description: string;
-  imgSrc: `/emotions/${string}`;
+  imgSrc: {
+    headspace: `/emotions/${string}.webp`;
+    realWorld: `/emotions/${string}-real.webp`;
+  };
   position: string;
   strong: "HAPPY" | "SAD" | "ANGRY" | null;
   weak: "HAPPY" | "SAD" | "ANGRY" | null;
+}
+
+export interface Location {
+  name: string;
+  description: string;
+  imgSrc: `/locations/${string}.webp`;
+  emoji: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
 }
 
 const navLinks: NavLink[] = [
@@ -255,7 +276,10 @@ const emotions: Emotion[] = [
     icon: Ghost,
     effect: "No effect",
     description: "Feeling indifferent. Nothing seems to matter.",
-    imgSrc: "/emotions/neutral.webp",
+    imgSrc: {
+      headspace: "/emotions/neutral.webp",
+      realWorld: "/emotions/neutral-real.webp",
+    },
     position: "top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2",
     strong: null,
     weak: null,
@@ -267,7 +291,10 @@ const emotions: Emotion[] = [
     icon: Smile,
     effect: "+1 SPEED, -1 HIT RATE",
     description: "Feeling joyful and energetic! Everything seems brighter.",
-    imgSrc: "/emotions/happy.webp",
+    imgSrc: {
+      headspace: "/emotions/happy.webp",
+      realWorld: "/emotions/happy-real.webp",
+    },
     position: "-top-40 left-1/2 -translate-x-1/2",
     strong: "ANGRY",
     weak: "SAD",
@@ -279,7 +306,10 @@ const emotions: Emotion[] = [
     icon: Frown,
     effect: "+1 DEFENSE, -1 SPEED",
     description: "Feeling down and sluggish. The world feels heavy.",
-    imgSrc: "/emotions/sad.webp",
+    imgSrc: {
+      headspace: "/emotions/sad.webp",
+      realWorld: "/emotions/sad-real.webp",
+    },
     position: "-bottom-30 -left-40",
     strong: "HAPPY",
     weak: "ANGRY",
@@ -291,11 +321,97 @@ const emotions: Emotion[] = [
     icon: Flame,
     effect: "+1 ATTACK, -1 DEFENSE",
     description: "Filled with rage! Ready to lash out at anything.",
-    imgSrc: "/emotions/angry.webp",
+    imgSrc: {
+      headspace: "/emotions/angry.webp",
+      realWorld: "/emotions/angry-real.webp",
+    },
     position: "-bottom-30 -right-40",
     strong: "SAD",
     weak: "HAPPY",
   },
 ];
 
-export { navLinks, floatingEmojis, characters, emotions };
+const locations: Location[] = [
+  {
+    name: "WHITESPACE",
+    description:
+      "A surreal, dream-like realm that serves as a hub connecting various locations in Omori's world.",
+    imgSrc: "/locations/whitespace.webp",
+    emoji: "⚪",
+    icon: Ghost,
+  },
+  {
+    name: "HEADSPACE",
+    description:
+      "The dream world where the story takes place, filled with memories and emotions.",
+    imgSrc: "/locations/headspace.webp",
+    emoji: "🌈",
+    icon: Star,
+  },
+  {
+    name: "VAST FOREST",
+    description:
+      "A dense and mysterious forest filled with towering trees and hidden secrets.",
+    imgSrc: "/locations/vast-forest.webp",
+    emoji: "🌲",
+    icon: Trees,
+  },
+  {
+    name: "OTHERWORLD",
+    description:
+      "A giant moon orbiting HEADSPACE. Luckily it never moves, as a ladder is the only means of getting there.",
+    imgSrc: "/locations/otherworld.webp",
+    emoji: "🌙",
+    icon: Moon,
+  },
+  {
+    name: "SWEETHEART'S CASTLE",
+    description:
+      "A grand and opulent castle filled with lavish decorations and a touch of whimsy.",
+    imgSrc: "/locations/sweethearts-castle.webp",
+    emoji: "🏰",
+    icon: Castle,
+  },
+  {
+    name: "PYREFLY FOREST",
+    description:
+      "A huge, mist covered forest surrounding a giant castle. Spiders prey on the weak, and shadows whisper in your ears.",
+    imgSrc: "/locations/pyrefly-forest.webp",
+    emoji: "🕷️",
+    icon: Bug,
+  },
+  {
+    name: "ORANGE OASIS",
+    description:
+      "Home of DINO'S DIG and a popular tourist spot, this desert oasis also holds its fair share of mystery.",
+    imgSrc: "/locations/orange-oasis.webp",
+    emoji: "🏜️",
+    icon: Palmtree,
+  },
+  {
+    name: "DEEPER WELL",
+    description:
+      "A dark underground passage that leads to forgotten memories and hidden truths beneath the surface.",
+    imgSrc: "/locations/deeper-well.webp",
+    emoji: "🕳️",
+    icon: Droplets,
+  },
+  {
+    name: "HUMPHREY",
+    description:
+      "A massive living whale that serves as both a location and a character, filled with bizarre internal landscapes.",
+    imgSrc: "/locations/humphrey.webp",
+    emoji: "🐋",
+    icon: Fish,
+  },
+  {
+    name: "BLACK SPACE",
+    description:
+      "A dark, surreal void filled with distorted memories and nightmarish imagery. The place where truth hides.",
+    imgSrc: "/locations/black-space.webp",
+    emoji: "⚫",
+    icon: Eclipse,
+  },
+];
+
+export { navLinks, floatingEmojis, characters, emotions, locations };
