@@ -73,15 +73,9 @@ const Locations = () => {
   return (
     <section
       id="locations"
-      className={`relative min-h-screen flex items-center justify-center py-12 ${
+      className={`relative min-h-screen bg-linear-to-b from-white via-gray-600 to-black flex items-center justify-center py-12 ${
         isMobile ? "px-6" : ""
       }`}
-      style={{
-        backgroundImage: `
-      radial-gradient(circle at 20% 80%, rgba(147, 112, 219, 0.08), transparent 40%),
-      radial-gradient(circle at 80% 20%, rgba(147, 112, 219, 0.08), transparent 40%)
-    `,
-      }}
     >
       <div className="absolute top-20 right-10 text-6xl opacity-30 float">
         🌸
