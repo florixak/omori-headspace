@@ -124,7 +124,7 @@ const Locations = () => {
             </div>
           </div>
           <div>
-            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-black)">
+            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-white)">
               There are many more locations to explore, each with its own story
               to tell.
             </p>

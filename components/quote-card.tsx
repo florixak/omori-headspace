@@ -1,9 +1,9 @@
 "use client";
 
-import { quotes } from "@/constants";
+import { type Quote, quotes } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Quote } from "lucide-react";
+import { QuoteIcon } from "lucide-react";
 import { useRef } from "react";
 
 interface QuoteCardProps {
@@ -32,10 +32,15 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
     });
   }, [currentQuote]);
 
-  const quote = quotes[currentQuote];
+  const quote: Quote = quotes[currentQuote] || {
+    text: "",
+    author: "",
+    context: "",
+  };
+
   return (
     <div className="relative max-w-6xl w-full min-h-[300px] mx-auto p-6 bg-(--omori-white) flex flex-col items-center justify-center text-center battle-box gap-6">
-      <Quote className="w-8 h-8 mb-4 text-(--omori-black) opacity-50" />
+      <QuoteIcon className="w-8 h-8 mb-4 text-(--omori-black) opacity-50" />
       <p
         ref={quoteRef}
         className="italic text-(--omori-black) text-2xl md:text-3xl mb-6 leading-relaxed max-w-2xl"
