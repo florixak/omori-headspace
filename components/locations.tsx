@@ -73,10 +73,13 @@ const Locations = () => {
   return (
     <section
       id="locations"
-      className={`min-h-screen flex items-center justify-center py-12 ${
+      className={`relative min-h-screen bg-linear-to-b from-white via-gray-600 to-black flex items-center justify-center py-12 ${
         isMobile ? "px-6" : ""
       }`}
     >
+      <div className="absolute top-20 right-10 text-6xl opacity-30 float">
+        🌸
+      </div>
       <div className="max-w-screen mx-auto">
         <div className="text-center">
           <div className="battle-box inline-block mb-6">
@@ -121,7 +124,7 @@ const Locations = () => {
             </div>
           </div>
           <div>
-            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-black)">
+            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-white)">
               There are many more locations to explore, each with its own story
               to tell.
             </p>
