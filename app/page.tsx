@@ -2,6 +2,7 @@ import Characters from "@/components/characters";
 import Emotions from "@/components/emotions";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import Locations from "@/components/locations";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Characters />
       <Emotions />
+      <Locations />
     </main>
   );
 }
