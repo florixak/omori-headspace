@@ -1,13 +1,13 @@
 "use client";
 
-import type { Location } from "@/constants";
+import type { Location as LocationCard } from "@/constants";
 import Image from "next/image";
 
 interface LocationProps {
-  location: Location;
+  location: LocationCard;
 }
 
-const MobileLocation = ({ location }: LocationProps) => {
+const MobileLocationCard = ({ location }: LocationProps) => {
   return (
     <div className="relative emotions-bg flex flex-col items-center justify-center p-4 md:p-8 rpg-border pixel-corners shadow-xl w-full max-w-sm h-96">
       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10 md:w-32 md:h-6 md:top-8"></div>
@@ -38,7 +38,7 @@ const MobileLocation = ({ location }: LocationProps) => {
   );
 };
 
-const Location = ({ location }: LocationProps) => {
+const LocationCard = ({ location }: LocationProps) => {
   return (
     <section className="min-h-screen min-w-screen flex items-center justify-center">
       <div className="relative emotions-bg flex flex-col items-center justify-center p-8 md:p-16 lg:p-36 rpg-border pixel-corners shadow-xl">
@@ -70,4 +70,4 @@ const Location = ({ location }: LocationProps) => {
   );
 };
 
-export { MobileLocation, Location };
+export { MobileLocationCard, LocationCard };

@@ -2,7 +2,7 @@
 
 import { locations } from "@/constants";
 import { useEffect, useEffectEvent, useRef, useState } from "react";
-import { MobileLocation, Location } from "./location";
+import { MobileLocationCard, LocationCard } from "./location-card";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -97,9 +97,9 @@ const Locations = () => {
             }`}
           >
             {isMobile ? (
-              <MobileLocation location={locations[0]} />
+              <MobileLocationCard location={locations[0]} />
             ) : (
-              <Location location={locations[0]} />
+              <LocationCard location={locations[0]} />
             )}
           </div>
           <div className={"min-w-screen"}>
@@ -113,9 +113,9 @@ const Locations = () => {
             >
               {locations.slice(1).map((location) => {
                 return isMobile ? (
-                  <MobileLocation key={location.name} location={location} />
+                  <MobileLocationCard key={location.name} location={location} />
                 ) : (
-                  <Location key={location.name} location={location} />
+                  <LocationCard key={location.name} location={location} />
                 );
               })}
             </div>
