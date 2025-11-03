@@ -10,6 +10,15 @@ import {
   Smile,
   Star,
   Zap,
+  Moon,
+  Trees,
+  Castle,
+  Bug,
+  Palmtree,
+  Droplets,
+  Fish,
+  Eclipse,
+  Home,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -58,6 +67,16 @@ export interface Emotion {
   position: string;
   strong: "HAPPY" | "SAD" | "ANGRY" | null;
   weak: "HAPPY" | "SAD" | "ANGRY" | null;
+}
+
+export interface Location {
+  name: string;
+  description: string;
+  imgSrc: `/locations/${string}.webp`;
+  emoji: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
 }
 
 const navLinks: NavLink[] = [
@@ -298,4 +317,95 @@ const emotions: Emotion[] = [
   },
 ];
 
-export { navLinks, floatingEmojis, characters, emotions };
+const locations: Location[] = [
+  {
+    name: "WHITESPACE",
+    description:
+      "A surreal, dream-like realm that serves as a hub connecting various locations in Omori's world.",
+    imgSrc: "/locations/whitespace.webp",
+    emoji: "⚪",
+    icon: Ghost,
+  },
+  {
+    name: "HEADSPACE",
+    description:
+      "The dream world where the story takes place, filled with memories and emotions.",
+    imgSrc: "/locations/headspace.webp",
+    emoji: "🌈",
+    icon: Star,
+  },
+  {
+    name: "VAST FOREST",
+    description:
+      "A dense and mysterious forest filled with towering trees and hidden secrets.",
+    imgSrc: "/locations/vast-forest.webp",
+    emoji: "🌲",
+    icon: Trees,
+  },
+  {
+    name: "OTHERWORLD",
+    description:
+      "A giant moon orbiting HEADSPACE. Luckily it never moves, as a ladder is the only means of getting there.",
+    imgSrc: "/locations/otherworld.webp",
+    emoji: "🌙",
+    icon: Moon,
+  },
+  {
+    name: "SWEETHEART'S CASTLE",
+    description:
+      "A grand and opulent castle filled with lavish decorations and a touch of whimsy.",
+    imgSrc: "/locations/sweethearts-castle.webp",
+    emoji: "🏰",
+    icon: Castle,
+  },
+  {
+    name: "PYREFLY FOREST",
+    description:
+      "A huge, mist covered forest surrounding a giant castle. Spiders prey on the weak, and shadows whisper in your ears.",
+    imgSrc: "/locations/pyrefly-forest.webp",
+    emoji: "🕷️",
+    icon: Bug,
+  },
+  {
+    name: "ORANGE OASIS",
+    description:
+      "Home of DINO'S DIG and a popular tourist spot, this desert oasis also holds its fair share of mystery.",
+    imgSrc: "/locations/orange-oasis.webp",
+    emoji: "🏜️",
+    icon: Palmtree,
+  },
+  {
+    name: "DEEPER WELL",
+    description:
+      "A dark underground passage that leads to forgotten memories and hidden truths beneath the surface.",
+    imgSrc: "/locations/deeper-well.webp",
+    emoji: "🕳️",
+    icon: Droplets,
+  },
+  {
+    name: "HUMPHREY",
+    description:
+      "A massive living whale that serves as both a location and a character, filled with bizarre internal landscapes.",
+    imgSrc: "/locations/humphrey.webp",
+    emoji: "🐋",
+    icon: Fish,
+  },
+  {
+    name: "BLACK SPACE",
+    description:
+      "A dark, surreal void filled with distorted memories and nightmarish imagery. The place where truth hides.",
+    imgSrc: "/locations/black-space.webp",
+    emoji: "⚫",
+    icon: Eclipse,
+  },
+  /*{
+    name: "FARAWAY TOWN",
+    description:
+      "The real-world neighborhood where Sunny lives. A peaceful suburban town with hidden emotional weight.",
+    imgSrc: "/locations/faraway-town.webp",
+    emoji: "🏘️",
+    icon: Home,
+  },*/
+];
+
+export { navLinks, floatingEmojis, characters, emotions, locations };
