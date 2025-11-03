@@ -11,6 +11,7 @@ import {
   HoverCardContent,
 } from "@/components/ui/hover-card";
 import { getColorOfEmotion } from "@/lib/utils";
+import useSpaceStore from "@/store/space-store";
 
 interface EmotionCardProps {
   emotion: Emotion;
@@ -20,9 +21,11 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const detailsRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLButtonElement>(null);
+  const { space } = useSpaceStore();
 
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
+  const isHeadspace = space === "headspace";
 
   useGSAP(() => {
     if (!detailsRef.current) return;
@@ -60,7 +63,9 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
     >
       <div className="flex items-center gap-4 p-3 cursor-pointer hover:bg-gray-50">
         <Image
-          src={emotion.imgSrc}
+          src={
+            isHeadspace ? emotion.imgSrc.headspace : emotion.imgSrc.realWorld
+          }
           alt={emotion.name}
           width={64}
           height={64}
@@ -127,6 +132,9 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
   const [isOpen, setIsOpen] = useState(false);
+  const { space } = useSpaceStore();
+
+  const isHeadspace = space === "headspace";
 
   const handleTabletClick = () => {
     setIsOpen(!isOpen);
@@ -144,7 +152,9 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
           className={`relative rpg-border p-1 w-fit hover:scale-110 transition-transform duration-150`}
         >
           <Image
-            src={emotion.imgSrc}
+            src={
+              isHeadspace ? emotion.imgSrc.headspace : emotion.imgSrc.realWorld
+            }
             alt={emotion.name}
             loading="lazy"
             width={180}
