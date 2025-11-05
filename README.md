@@ -31,7 +31,7 @@ A stunning interactive fan website celebrating the indie psychological horror RP
 
 ## ⚡ Tech Stack
 
-- **Framework:** Next.js 16, React 19, TypeScript
+- **Framework:** Next.js 16, React 19.2, TypeScript
 - **Styling:** Tailwind CSS 4
 - **Animations:** GSAP
 - **UI Components:** shadcn
@@ -39,24 +39,6 @@ A stunning interactive fan website celebrating the indie psychological horror RP
 - **State Management:** Zustand
 - **Linting:** ESLint 9
 - **Build Tool:** Next.js (Turbopack)
-
-## 📁 Project Structure
-
-```
-├── App.tsx                    # Main app component
-├── components/
-│   ├── Hero.tsx              # Headspace/Real World toggle
-│   ├── Characters.tsx        # Character cards with 3D tilt
-│   ├── Emotions.tsx          # Interactive emotion triangle
-│   ├── Locations.tsx         # Parallax location showcase
-│   ├── Quotes.tsx            # Carousel component
-│   ├── Gallery.tsx           # Modal gallery system
-│   ├── Navigation.tsx        # Smooth scroll navigation
-│   └── Footer.tsx            # Credits and disclaimers
-├── styles/
-│   └── globals.css           # Custom CSS properties & animations
-└── Attributions.md           # Image credits and legal info
-```
 
 ## 🚀 Getting Started
 
@@ -68,7 +50,7 @@ A stunning interactive fan website celebrating the indie psychological horror RP
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/omori-fan-website.git
+git clone https://github.com/florixak/omori-headspace.git
 
 # Navigate to project directory
 cd omori-fan-website
@@ -80,7 +62,7 @@ npm install
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173`
+The site will be available at `http://localhost:3000`
 
 ### Build for Production
 
