@@ -26,7 +26,12 @@ const Locations = () => {
   useGSAP(() => {
     if (!scrollRef.current || !hydrated) return;
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     if (isMobile) {
+      if (prefersReducedMotion) return;
       const cards = scrollRef.current.children as HTMLCollectionOf<HTMLElement>;
       Array.from(cards).forEach((card) => {
         gsap.fromTo(

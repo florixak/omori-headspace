@@ -28,7 +28,10 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   const isHeadspace = space === "headspace";
 
   useGSAP(() => {
-    if (!detailsRef.current) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!detailsRef.current || prefersReducedMotion) return;
 
     if (isExpanded) {
       gsap.to(detailsRef.current, {
