@@ -86,6 +86,13 @@ export interface Quote {
   author: string;
 }
 
+export interface Photo {
+  src: `/gallery/${string}.webp`;
+  caption: string;
+  day: `${number}/${number}`;
+  title: string;
+}
+
 const navLinks: NavLink[] = [
   { label: "CHARACTERS", href: "#characters" },
   { label: "EMOTIONS", href: "#emotions" },
@@ -462,4 +469,71 @@ const quotes: Quote[] = [
   },
 ];
 
-export { navLinks, floatingEmojis, characters, emotions, locations, quotes };
+const photos: Photo[] = [
+  {
+    src: "/gallery/01.webp",
+    caption:
+      '"MARI is teaching everyone how to make flower crowns! OMORI and KEL are holding MARI\'s example. So pretty..."',
+    day: "1/1",
+    title: "Friendship",
+  },
+  {
+    src: "/gallery/02.webp",
+    caption:
+      '"OMORI and KEL gave up and ran off, but AUBREY and I got the hang of it really fast!"',
+    day: "1/5",
+    title: "Nature's Embrace",
+  },
+  {
+    src: "/gallery/03.webp",
+    caption:
+      "\"HERO's still making his flower crown. It's taking him a little while, but he's getting it. You have to admire his persistence.\"",
+    day: "1/10",
+    title: "Lunar Adventure",
+  },
+  {
+    src: "/gallery/04.webp",
+    caption:
+      '"Everyone\'s eating watermelons. So juicy! AUBREY has some seeds on her face. Maybe someone should tell her."',
+    day: "1/15",
+    title: "Royal Memories",
+  },
+  {
+    src: "/gallery/05.webp",
+    caption:
+      '"KEL drinking a bottle of MILK, his favorite! I shouldn\'t get too close or he might get my camera wet."',
+    day: "1/20",
+    title: "Mystic Woods",
+  },
+  {
+    src: "/gallery/06.webp",
+    caption:
+      '"MARI had HERO take a picture of us. Everyone thinks a flower crown really suits me."',
+    day: "1/25",
+    title: "Desert Dreams",
+  },
+  {
+    src: "/gallery/07.webp",
+    caption:
+      '"HERO leaning in for a smooch! KEL looks so annoyed. Ah, brotherly love..."',
+    day: "1/20",
+    title: "Mystic Woods",
+  },
+  {
+    src: "/gallery/08.webp",
+    caption:
+      '"We\'re having a picnic today! MARI wanted to take a picture of everyone. Say cheese!"',
+    day: "1/25",
+    title: "Desert Dreams",
+  },
+];
+
+export {
+  navLinks,
+  floatingEmojis,
+  characters,
+  emotions,
+  locations,
+  quotes,
+  photos,
+};
