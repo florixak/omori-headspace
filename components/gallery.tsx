@@ -36,9 +36,16 @@ const Gallery = () => {
       className="min-h-screen flex flex-col items-center justify-center py-12 bg-(--omori-white)"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="pixel-text text-2xl mb-2">Basil&#39;s Photo Album</h2>
-          <p className="text-lg text-gray-600">
+        <div className="text-center my-16">
+          <div className="battle-box inline-block mb-6">
+            <span className="text-sm opacity-70"> /| GALLERY |\ </span>
+          </div>
+
+          <h2 className="text-(--omori-black) mb-4 pixel-text">
+            BASIL&#39;S PHOTO ALBUM
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-lg">
             Precious memories with friends...
           </p>
         </div>
@@ -49,9 +56,9 @@ const Gallery = () => {
           <div className="relative w-1/2 h-full border-r-2 border-gray-300">
             {spreadPhotos.slice(0, 3).map((photo, index) => {
               const positions = [
-                "absolute top-8 left-4",
+                "absolute top-8 left-2",
                 "absolute top-11 left-0",
-                "absolute -bottom-10 left-8",
+                "absolute -bottom-10 left-2",
               ];
               return (
                 <PhotoCard
@@ -67,9 +74,9 @@ const Gallery = () => {
           <div className="relative w-1/2 h-full ml-6">
             {spreadPhotos.slice(3, 6).map((photo, index) => {
               const positions = [
-                "absolute top-8 left-4",
+                "absolute top-8 left-2",
                 "absolute top-11 left-0",
-                "absolute -bottom-10 left-8",
+                "absolute -bottom-10 left-2",
               ];
               return (
                 <PhotoCard
