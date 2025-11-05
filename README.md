@@ -53,7 +53,7 @@ A stunning interactive fan website celebrating the indie psychological horror RP
 git clone https://github.com/florixak/omori-headspace.git
 
 # Navigate to project directory
-cd omori-fan-website
+cd omori-headspace
 
 # Install dependencies
 npm install
