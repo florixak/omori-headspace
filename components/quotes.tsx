@@ -64,7 +64,7 @@ const Quotes = () => {
             } rpg-border hover:text-(--omori-white) transition-all duration-300 flex items-center gap-4`}
           >
             <ArrowRightIcon className="rotate-180" />
-            <span className="hidden sm:block">PREVIOUS</span>
+            <span className="hidden sm:block">PREV</span>
           </button>
           <div className="gap-2 flex">
             {quotes.map((_, index) => (
