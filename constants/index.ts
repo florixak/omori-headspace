@@ -526,6 +526,76 @@ const photos: Photo[] = [
     day: "1/25",
     title: "Desert Dreams",
   },
+  {
+    src: "/gallery/09.webp",
+    caption:
+      '"After eating, everyone fell asleep, except HERO and MARI. I\'m getting kind of sleepy myself."',
+    day: "1/30",
+    title: "Sweet Dreams",
+  },
+  {
+    src: "/gallery/10.webp",
+    caption:
+      '"My best friends... KEL, AUBREY, HERO, and OMORI! I\'ll cherish them all forever."',
+    day: "1/30",
+    title: "Friendship Forever",
+  },
+  {
+    src: "/gallery/11.webp",
+    caption:
+      '"All of our feet in a circle! Can you guess whose feet are whose?"',
+    day: "1/31",
+    title: "Green Thumbs",
+  },
+  {
+    src: "/gallery/12.webp",
+    caption:
+      "\"MARI and I are posing for a picture together! I'm so glad we're friends.\"",
+    day: "1/31",
+    title: "Best Friends",
+  },
+  {
+    src: "/gallery/13.webp",
+    caption:
+      '"Everyone helped me water my plants today! I tend to ramble on for too long when I start talking about plants, so I\'m glad my friends listened to me!"',
+    day: "1/31",
+    title: "Plant Parent",
+  },
+  {
+    src: "/gallery/14.webp",
+    caption:
+      '"We found an old couch in the JUNKYARD! There was only enough space on the couch for four people, but I don\'t mind. I have the best view in the entire world!"',
+    day: "1/31",
+    title: "Home Run",
+  },
+  {
+    src: "/gallery/15.webp",
+    caption:
+      '"A spider suddenly fell from a tree and surprised everyone! HERO is too AFRAID to look."',
+    day: "1/31",
+    title: "New Look",
+  },
+  {
+    src: "/gallery/16.webp",
+    caption:
+      '"Oh, boy! Oh, boy! We were able to score five tickets to "SWEETHEART\'S QUEST FOR HEARTS"! I sure hope nothing unexpected happens..."',
+    day: "1/31",
+    title: "Master Chef",
+  },
+  {
+    src: "/gallery/17.webp",
+    caption:
+      '"We\'re at the LAST RESORT! KEL keeps losing at slots. He should really learn when to stop."',
+    day: "1/31",
+    title: "Lucky Strike",
+  },
+  {
+    src: "/gallery/18.webp",
+    caption:
+      '"We stopped by the MUSTARD SUB for some grub! COMBO MEALS for everyone!!"',
+    day: "1/31",
+    title: "Fast Food Fun",
+  },
 ];
 
 export {
