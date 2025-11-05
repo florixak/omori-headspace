@@ -103,24 +103,40 @@ npm run build
 The site uses OMORI's iconic color palette:
 
 ```css
---omori-black: #000000        /* Primary text & borders */
---omori-white: #FFFFFF        /* Backgrounds & content */
---omori-purple: #7B68EE       /* OMORI/Headspace accents */
---happy-yellow: #FFD700       /* HAPPY emotion */
---sad-blue: #4169E1           /* SAD emotion */
---angry-red: #DC143C          /* ANGRY emotion */
---mari-red: #FF6B9D           /* MARI theme */
---hero-cyan: #00CED1          /* HERO theme */
---aubrey-pink: #FF69B4        /* AUBREY theme */
---kel-orange: #FF8C00         /* KEL theme */
---basil-green: #32CD32        /* BASIL theme */
+/* Headspace - Black & White with pops of color */
+--omori-black: #000000;
+--omori-white: #ffffff;
+--omori-gray: #808080;
+
+/* Character Colors */
+--omori-purple: #9370db; /* Omori/Sunny */
+--aubrey-pink: #ff69b4;
+--kel-orange: #ff8c42;
+--hero-cyan: #4dd9e8;
+--basil-green: #90ee90;
+--mari-red: #dc143c;
+
+/* Emotional States */
+--happy-yellow: #ffd700;
+--sad-blue: #4169e1;
+--angry-red: #ff4444;
+--neutral-gray: #a9a9a9;
+
+/* Backgrounds */
+--headspace-bg: #f5f5f5;
+--real-world-bg: #2a2a2a;
+--white-space-bg: #ffffff;
+
+/* Typography */
+--font-game: "Courier New", monospace;
+--font-display: "Comic Sans MS", cursive;
 ```
 
 ## ⚖️ Legal Disclaimer
 
 This is a **non-commercial fan project** created for educational and portfolio purposes. OMORI, its characters, story, and assets are © OMOCAT LLC. This project is not affiliated with, endorsed by, or connected to OMOCAT LLC.
 
-All placeholder images are sourced from Unsplash and are used under their free license. See `Attributions.md` for full credits.
+All placeholder images are sourced from Omori Wiki Fandom. See the full credits.
 
 **This project is intended to demonstrate:**
 
@@ -148,7 +164,5 @@ This fan project is released under the MIT License for the code only. OMORI game
 **"Everything is going to be okay."**
 
 Made with 💜 by Ondřej Pták
-
-[Live Demo](#) • [Report Bug](#) • [Request Feature](#)
 
 </div>
