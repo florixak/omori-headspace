@@ -95,6 +95,7 @@ const CharacterCard = ({ character, index }: CharacterCardProps) => {
           width={180}
           height={180}
           loading="lazy"
+          unoptimized
         />
         <h3 className="mb-2">{character.name}</h3>
         <div
