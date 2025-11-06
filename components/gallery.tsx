@@ -1,20 +1,23 @@
 "use client";
 
-import { useState, useRef } from "react";
-import PhotoCard from "./photo-card";
+import { useState } from "react";
 import { ArrowRightIcon } from "lucide-react";
 import useSpaceStore from "@/store/space-store";
-import { Photo, photos } from "@/constants";
+import { photos } from "@/constants";
+import { Album, MobileAlbum } from "./album";
+import { useMediaQuery } from "react-responsive";
 
-const PHOTOS_PER_PAGE = 6;
+export const PHOTOS_PER_PAGE = 6;
 
 const Gallery = () => {
   const [page, setPage] = useState(0);
-  const albumRef = useRef<HTMLDivElement>(null);
   const { space } = useSpaceStore();
+  const isMobile = useMediaQuery({ maxWidth: "1024px" });
   const isHeadspace = space === "headspace";
 
-  const totalPages = Math.ceil(photos.length / PHOTOS_PER_PAGE);
+  const totalPages = isMobile
+    ? photos.length
+    : Math.ceil(photos.length / PHOTOS_PER_PAGE);
 
   const handleNextPage = () => {
     setPage((prevPage) => (prevPage + 1) % totalPages);
@@ -23,12 +26,6 @@ const Gallery = () => {
   const handlePreviousPage = () => {
     setPage((prevPage) => (prevPage - 1 + totalPages) % totalPages);
   };
-
-  const startIdx = page * PHOTOS_PER_PAGE;
-  const spreadPhotos: Photo[] = photos.slice(
-    startIdx,
-    startIdx + PHOTOS_PER_PAGE
-  );
 
   return (
     <section
@@ -49,47 +46,12 @@ const Gallery = () => {
             Precious memories with friends...
           </p>
         </div>
+        {isMobile ? <MobileAlbum page={page} /> : <Album page={page} />}
         <div
-          ref={albumRef}
-          className="overflow-hidden relative w-6xl h-[540px] md:h-[700px] emotions-bg rpg-border pixel-corners shadow-xl flex flex-row p-6"
+          className={`flex items-center justify-between gap-4 mt-6 ${
+            isMobile ? "mx-2" : ""
+          }`}
         >
-          <div className="relative w-1/2 h-full border-r-2 border-gray-300">
-            {spreadPhotos.slice(0, 3).map((photo, index) => {
-              const positions = [
-                "absolute top-8 left-2",
-                "absolute top-11 left-0",
-                "absolute -bottom-10 left-2",
-              ];
-              return (
-                <PhotoCard
-                  key={photo.src}
-                  photo={photo}
-                  position={positions[index]}
-                  index={index + 1}
-                />
-              );
-            })}
-          </div>
-
-          <div className="relative w-1/2 h-full ml-6">
-            {spreadPhotos.slice(3, 6).map((photo, index) => {
-              const positions = [
-                "absolute top-8 left-2",
-                "absolute top-11 left-0",
-                "absolute -bottom-10 left-2",
-              ];
-              return (
-                <PhotoCard
-                  key={photo.src}
-                  photo={photo}
-                  position={positions[index]}
-                  index={index + 3}
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div className="flex items-center justify-between gap-4 mt-6">
           <button
             onClick={handlePreviousPage}
             aria-label="Previous Quote"
@@ -102,7 +64,7 @@ const Gallery = () => {
             <ArrowRightIcon className="rotate-180" />
             <span className="hidden sm:block">PREV</span>
           </button>
-          <div className="gap-2 flex">
+          <div className="gap-2 flex items-center justify-center flex-wrap">
             {Array.from({
               length: totalPages,
             }).map((_, index) => (
