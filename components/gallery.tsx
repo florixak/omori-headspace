@@ -16,6 +16,8 @@ const Gallery = () => {
     ? photos.length
     : Math.ceil(photos.length / PHOTOS_PER_PAGE);
 
+  const safePage = Math.max(0, Math.min(page, totalPages - 1));
+
   const handleNextPage = () => {
     setPage((prevPage) => (prevPage + 1) % totalPages);
   };
@@ -43,10 +45,10 @@ const Gallery = () => {
             Precious memories with friends...
           </p>
         </div>
-        {isMobile ? <MobileAlbum page={page} /> : <Album page={page} />}
+        {isMobile ? <MobileAlbum page={safePage} /> : <Album page={page} />}
         <Navigation
           totalPages={totalPages}
-          page={page}
+          page={safePage}
           setPage={setPage}
           handleNextPage={handleNextPage}
           handlePreviousPage={handlePreviousPage}
