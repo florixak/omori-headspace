@@ -13,7 +13,11 @@ interface PhotoCardProps {
 
 const PhotoCard = ({ photo, position, index }: PhotoCardProps) => {
   const [hydrated, setHydrated] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: "1024px" });
+  const isMobile = useMediaQuery(
+    { maxWidth: "1024px" },
+    undefined,
+    (matches) => matches
+  );
   const even = index !== undefined && index % 2 === 0;
 
   const imageWidth = isMobile ? 200 : 160;
@@ -25,7 +29,7 @@ const PhotoCard = ({ photo, position, index }: PhotoCardProps) => {
 
   useEffect(() => {
     handleHydration();
-  }, [isMobile]);
+  }, []);
 
   if (!hydrated) {
     return null;
@@ -33,10 +37,11 @@ const PhotoCard = ({ photo, position, index }: PhotoCardProps) => {
 
   return (
     <div
-      key={photo.src}
       className={`relative flex ${
         isMobile ? "flex-col" : "flex-row"
-      } items-center ${even ? "flex-row-reverse" : ""} w-lg gap-5 ${position}`}
+      } items-center ${
+        even && !isMobile ? "flex-row-reverse" : ""
+      } w-lg gap-5 ${position}`}
     >
       <Image
         src={photo.src}
