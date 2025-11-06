@@ -17,8 +17,11 @@ const Emotions = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useGSAP(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     const ref = isMobile ? mobileRef : desktopRef;
-    if (!ref.current) return;
+    if (!ref.current || prefersReducedMotion) return;
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ref.current,

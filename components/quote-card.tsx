@@ -14,7 +14,10 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   const quoteRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(() => {
-    if (!quoteRef.current) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!quoteRef.current || prefersReducedMotion) return;
 
     gsap.to(quoteRef.current, {
       opacity: 0,
@@ -39,8 +42,8 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   };
 
   return (
-    <div className="max-w-6xl w-full min-h-[200px] md:min-h-[300px] bg-(--omori-white) ">
-      <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6">
+    <div className="max-w-6xl w-full min-h-[200px] md:min-h-[300px] ">
+      <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6 bg-(--omori-white)">
         <QuoteIcon className="w-8 h-8 mb-4 text-(--omori-black) opacity-50" />
         <p
           ref={quoteRef}

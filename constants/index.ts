@@ -86,6 +86,13 @@ export interface Quote {
   author: string;
 }
 
+export interface Photo {
+  src: `/gallery/${string}.webp`;
+  caption: string;
+  day: `${number}/${number}`;
+  title: string;
+}
+
 const navLinks: NavLink[] = [
   { label: "CHARACTERS", href: "#characters" },
   { label: "EMOTIONS", href: "#emotions" },
@@ -462,4 +469,141 @@ const quotes: Quote[] = [
   },
 ];
 
-export { navLinks, floatingEmojis, characters, emotions, locations, quotes };
+const photos: Photo[] = [
+  {
+    src: "/gallery/01.webp",
+    caption:
+      '"MARI is teaching everyone how to make flower crowns! OMORI and KEL are holding MARI\'s example. So pretty..."',
+    day: "1/1",
+    title: "Friendship",
+  },
+  {
+    src: "/gallery/02.webp",
+    caption:
+      '"OMORI and KEL gave up and ran off, but AUBREY and I got the hang of it really fast!"',
+    day: "1/5",
+    title: "Nature's Embrace",
+  },
+  {
+    src: "/gallery/03.webp",
+    caption:
+      "\"HERO's still making his flower crown. It's taking him a little while, but he's getting it. You have to admire his persistence.\"",
+    day: "1/10",
+    title: "Lunar Adventure",
+  },
+  {
+    src: "/gallery/04.webp",
+    caption:
+      '"Everyone\'s eating watermelons. So juicy! AUBREY has some seeds on her face. Maybe someone should tell her."',
+    day: "1/15",
+    title: "Royal Memories",
+  },
+  {
+    src: "/gallery/05.webp",
+    caption:
+      '"KEL drinking a bottle of MILK, his favorite! I shouldn\'t get too close or he might get my camera wet."',
+    day: "1/20",
+    title: "Mystic Woods",
+  },
+  {
+    src: "/gallery/06.webp",
+    caption:
+      '"MARI had HERO take a picture of us. Everyone thinks a flower crown really suits me."',
+    day: "1/25",
+    title: "Desert Dreams",
+  },
+  {
+    src: "/gallery/07.webp",
+    caption:
+      '"HERO leaning in for a smooch! KEL looks so annoyed. Ah, brotherly love..."',
+    day: "1/20",
+    title: "Mystic Woods",
+  },
+  {
+    src: "/gallery/08.webp",
+    caption:
+      '"We\'re having a picnic today! MARI wanted to take a picture of everyone. Say cheese!"',
+    day: "1/25",
+    title: "Desert Dreams",
+  },
+  {
+    src: "/gallery/09.webp",
+    caption:
+      '"After eating, everyone fell asleep, except HERO and MARI. I\'m getting kind of sleepy myself."',
+    day: "1/30",
+    title: "Sweet Dreams",
+  },
+  {
+    src: "/gallery/10.webp",
+    caption:
+      '"My best friends... KEL, AUBREY, HERO, and OMORI! I\'ll cherish them all forever."',
+    day: "1/30",
+    title: "Friendship Forever",
+  },
+  {
+    src: "/gallery/11.webp",
+    caption:
+      '"All of our feet in a circle! Can you guess whose feet are whose?"',
+    day: "1/31",
+    title: "Green Thumbs",
+  },
+  {
+    src: "/gallery/12.webp",
+    caption:
+      "\"MARI and I are posing for a picture together! I'm so glad we're friends.\"",
+    day: "1/31",
+    title: "Best Friends",
+  },
+  {
+    src: "/gallery/13.webp",
+    caption:
+      '"Everyone helped me water my plants today! I tend to ramble on for too long when I start talking about plants, so I\'m glad my friends listened to me!"',
+    day: "1/31",
+    title: "Plant Parent",
+  },
+  {
+    src: "/gallery/14.webp",
+    caption:
+      '"We found an old couch in the JUNKYARD! There was only enough space on the couch for four people, but I don\'t mind. I have the best view in the entire world!"',
+    day: "1/31",
+    title: "Home Run",
+  },
+  {
+    src: "/gallery/15.webp",
+    caption:
+      '"A spider suddenly fell from a tree and surprised everyone! HERO is too AFRAID to look."',
+    day: "1/31",
+    title: "New Look",
+  },
+  {
+    src: "/gallery/16.webp",
+    caption:
+      '"Oh, boy! Oh, boy! We were able to score five tickets to "SWEETHEART\'S QUEST FOR HEARTS"! I sure hope nothing unexpected happens..."',
+    day: "1/31",
+    title: "Master Chef",
+  },
+  {
+    src: "/gallery/17.webp",
+    caption:
+      '"We\'re at the LAST RESORT! KEL keeps losing at slots. He should really learn when to stop."',
+    day: "1/31",
+    title: "Lucky Strike",
+  },
+  {
+    src: "/gallery/18.webp",
+    caption:
+      '"We stopped by the MUSTARD SUB for some grub! COMBO MEALS for everyone!!"',
+    day: "1/31",
+    title: "Fast Food Fun",
+  },
+];
+
+export {
+  navLinks,
+  floatingEmojis,
+  characters,
+  emotions,
+  locations,
+  quotes,
+  photos,
+};

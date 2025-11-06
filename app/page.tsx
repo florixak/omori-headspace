@@ -1,5 +1,6 @@
 import Characters from "@/components/characters";
 import Emotions from "@/components/emotions";
+import Gallery from "@/components/gallery";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Locations from "@/components/locations";
@@ -14,6 +15,7 @@ export default function Home() {
       <Emotions />
       <Locations />
       <Quotes />
+      <Gallery />
     </main>
   );
 }

@@ -55,6 +55,7 @@ const Hero = () => {
           height={320}
           className="object-cover rpg-border breathe relative"
           loading="eager"
+          unoptimized
         />
         <div className="w-0 h-0">
           {floatingEmojis.map((emoji) => (

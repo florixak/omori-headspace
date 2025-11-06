@@ -28,7 +28,10 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   const isHeadspace = space === "headspace";
 
   useGSAP(() => {
-    if (!detailsRef.current) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!detailsRef.current || prefersReducedMotion) return;
 
     if (isExpanded) {
       gsap.to(detailsRef.current, {
@@ -71,6 +74,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           height={64}
           loading="lazy"
           className="rpg-border"
+          unoptimized
         />
 
         <div className="flex-1">
@@ -159,6 +163,7 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
             loading="lazy"
             width={180}
             height={180}
+            unoptimized
           />
           <div className="rpg-bg rpg-border text-center">
             <span style={textColor} className="font-bold">
