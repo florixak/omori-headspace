@@ -5,6 +5,7 @@ import { photos } from "@/constants";
 import { Album, MobileAlbum } from "./album";
 import { useMediaQuery } from "react-responsive";
 import Navigation from "./navigation";
+import { Camera } from "lucide-react";
 
 export const PHOTOS_PER_PAGE = 6;
 
@@ -53,6 +54,14 @@ const Gallery = () => {
           handleNextPage={handleNextPage}
           handlePreviousPage={handlePreviousPage}
         />
+        <div
+          className={`flex items-center justify-center text-center gap-2 mt-8 rpg-border pixel-corners p-6 w-fit mx-auto ${
+            isMobile ? "text-sm" : ""
+          }`}
+        >
+          <Camera className="inline-block mr-2" />
+          <span>&quot;Let&#39;s make some more memories together.&quot;</span>
+        </div>
       </div>
     </section>
   );
