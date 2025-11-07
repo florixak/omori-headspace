@@ -56,10 +56,10 @@ const Gallery = () => {
         />
         <div
           className={`flex items-center justify-center text-center gap-2 mt-8 rpg-border pixel-corners p-6 w-fit mx-auto ${
-            isMobile ? "text-sm" : ""
+            isMobile ? "text-sm flex-col" : "flex-row"
           }`}
         >
-          <Camera className="inline-block mr-2" />
+          <Camera className="inline-block" />
           <span>&quot;Let&#39;s make some more memories together.&quot;</span>
         </div>
       </div>
