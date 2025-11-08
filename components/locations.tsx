@@ -36,10 +36,11 @@ const Locations = () => {
       Array.from(cards).forEach((card) => {
         gsap.fromTo(
           card,
-          { opacity: 0, x: 50 },
+          { opacity: 0, scale: 0.8, rotate: -10 },
           {
             opacity: 1,
-            x: 0,
+            scale: 1,
+            rotate: 0,
             scrollTrigger: {
               trigger: card,
               start: "top 80%",
@@ -99,17 +100,6 @@ const Locations = () => {
             Each location holds its own unique atmosphere and significance
             within the story.
           </p>
-          <div
-            className={`mt-12 flex justify-center ${
-              isMobile ? "mb-4" : "mb-0"
-            }`}
-          >
-            {isMobile ? (
-              <MobileLocationCard location={locations[0]} />
-            ) : (
-              <LocationCard location={locations[0]} />
-            )}
-          </div>
           <div className={"min-w-screen"}>
             <div
               ref={scrollRef}
@@ -119,6 +109,11 @@ const Locations = () => {
                   : "flex items-center justify-start h-full"
               }`}
             >
+              {isMobile ? (
+                <MobileLocationCard location={locations[0]} />
+              ) : (
+                <LocationCard location={locations[0]} />
+              )}
               {locations.slice(1).map((location) => {
                 return isMobile ? (
                   <MobileLocationCard key={location.name} location={location} />
