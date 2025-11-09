@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/mewo.webp",
   },
-  authors: [{ name: "Ondrej Ptak", url: "https://github.com/florixak" }],
+  authors: [{ name: "Ondřej Pták", url: "https://github.com/florixak" }],
   keywords: [
     "OMORI",
     "Headspace",
