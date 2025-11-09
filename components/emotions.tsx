@@ -83,7 +83,6 @@ const Emotions = () => {
             <MobileEmotionCard key={emotion.name} emotion={emotion} />
           ))}
         </div>
-        <p className="text-center text-sm opacity-70"></p>
         <div
           className={`flex items-center justify-center text-center gap-2 mt-8 mx-1 md:mx-auto rpg-border pixel-corners bg-(--omori-white) p-6 w-fit ${
             isMobile ? "text-sm flex-col" : "flex-row"
