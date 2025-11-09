@@ -33,7 +33,7 @@ const Gallery = () => {
       className="min-h-screen flex flex-col items-center justify-center py-12 bg-(--omori-white)"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center my-16">
+        <div className="text-center mb-16">
           <div className="battle-box inline-block mb-6">
             <span className="text-sm opacity-70"> /| GALLERY |\ </span>
           </div>
@@ -55,7 +55,7 @@ const Gallery = () => {
           handlePreviousPage={handlePreviousPage}
         />
         <div
-          className={`flex items-center justify-center text-center gap-2 mt-8 rpg-border pixel-corners p-6 w-fit mx-auto ${
+          className={`flex items-center justify-center text-center gap-2 mt-8 mx-1 md:mx-auto rpg-border pixel-corners p-6 w-fit ${
             isMobile ? "text-sm flex-col" : "flex-row"
           }`}
         >
