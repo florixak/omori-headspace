@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "react-responsive";
+import Title from "./title";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,20 +88,11 @@ const Locations = () => {
         🌸
       </div>
       <div className="max-w-screen mx-auto">
-        <div className="text-center">
-          <div className="battle-box inline-block mb-6">
-            <span className="text-sm opacity-70"> /| LOCATIONS |\ </span>
-          </div>
-
-          <h2 className="text-(--omori-black) mb-4 pixel-text">
-            THE LOCATIONS
-          </h2>
-
-          <p className="max-w-2xl mx-auto text-lg text-(--omori-black)">
-            Each location holds its own unique atmosphere and significance
-            within the story.
-          </p>
-        </div>
+        <Title
+          heading="LOCATIONS"
+          title="THE LOCATIONS"
+          subtitle="Each location holds its own unique atmosphere and significance within the story."
+        />
         <div className="min-w-screen">
           <div
             ref={scrollRef}

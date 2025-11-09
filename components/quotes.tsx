@@ -4,6 +4,7 @@ import { useEffect, useEffectEvent, useState } from "react";
 import QuoteCard from "./quote-card";
 import { quotes } from "@/constants";
 import Navigation from "./navigation";
+import Title from "./title";
 
 const Quotes = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
@@ -36,20 +37,12 @@ const Quotes = () => {
       className="min-h-screen flex items-center justify-center px-6"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="battle-box inline-block mb-6">
-            <span className="text-sm opacity-70"> /| MEMORABLE QUOTES |\ </span>
-          </div>
-
-          <h2 className="text-(--omori-black) mb-4 pixel-text">
-            WORDS TO REMEMBER
-          </h2>
-
-          <p className="max-w-2xl mx-auto text-lg">
-            Each quote holds its own unique significance within the story.
-          </p>
-        </div>
-
+        <Title
+          heading="MEMORABLE QUOTES"
+          title="WORDS TO REMEMBER"
+          subtitle="Each quote holds its own unique significance within the story."
+          className="mb-16"
+        />
         <QuoteCard currentQuote={currentQuote} />
         <Navigation
           totalPages={quotes.length}

@@ -4,6 +4,8 @@ import { useRef } from "react";
 import PhotoCard from "./photo-card";
 import { Photo, photos } from "@/constants";
 import { PHOTOS_PER_PAGE } from "./gallery";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface AlbumProps {
   page: number;
@@ -12,6 +14,24 @@ interface AlbumProps {
 const MobileAlbum = ({ page }: AlbumProps) => {
   const albumRef = useRef<HTMLDivElement>(null);
   const photo = photos[page];
+
+  useGSAP(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!albumRef.current || prefersReducedMotion) return;
+
+    gsap.fromTo(
+      albumRef.current,
+      { scale: 0.95, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      }
+    );
+  }, [page]);
 
   if (!photo) {
     return null;
@@ -35,6 +55,24 @@ const Album = ({ page }: AlbumProps) => {
     startIdx,
     startIdx + PHOTOS_PER_PAGE
   );
+
+  useGSAP(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!albumRef.current || prefersReducedMotion) return;
+
+    gsap.fromTo(
+      albumRef.current,
+      { scale: 0.95, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      }
+    );
+  }, [page]);
 
   return (
     <div

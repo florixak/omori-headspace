@@ -5,6 +5,7 @@ import useSpaceStore from "@/store/space-store";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import CharacterCard from "./character-card";
+import Title from "./title";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,17 +21,12 @@ const Characters = () => {
       className="min-h-screen bg-(--omori-white) flex items-center justify-center px-6 pb-12"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center my-16">
-          <div className="battle-box inline-block mb-6">
-            <span className="text-sm opacity-70"> /| PARTY MEMBERS |\ </span>
-          </div>
-
-          <h2 className="text-(--omori-black) mb-4 pixel-text">THE FRIENDS</h2>
-
-          <p className="max-w-2xl mx-auto text-lg">
-            Your party members. Each with their own strengths and weaknesses.
-          </p>
-        </div>
+        <Title
+          heading="PARTY MEMBERS"
+          title="THE FRIENDS"
+          subtitle="Your party members. Each with their own strengths and weaknesses."
+          className="my-16"
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {spaceCharacters.map((character, index) => (
