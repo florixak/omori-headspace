@@ -59,7 +59,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <span className="text-xl pixel-text">OMORI FAN SITE</span>
+            <span className="text-xl pixel-text">OMORI HEADSPACE</span>
           </div>
           <nav>
             <ul className="hidden md:flex items-center gap-1">
