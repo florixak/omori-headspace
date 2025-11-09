@@ -1,11 +1,12 @@
 "use client";
 
 import { navLinks, socials } from "@/constants";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import useSpaceStore from "@/store/space-store";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  const { space } = useSpaceStore();
   return (
     <footer className="flex flex-col w-full border-t-4 border-(--omori-black) px-10 py-12 gap-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between space-y-8">
@@ -40,7 +41,13 @@ const Footer = () => {
             <div className="flex flex-row flex-wrap gap-2">
               {socials.map((social) => (
                 <Link key={social.label} href={social.href}>
-                  <div className="rpg-border w-fit p-2">
+                  <div
+                    className={`rpg-border p-2 ${
+                      space === "headspace"
+                        ? "hover:bg-(--omori-purple)"
+                        : "hover:bg-(--kel-orange)"
+                    } hover:text-(--omori-white) hover:border-(--omori-black) transition-colors duration-200`}
+                  >
                     <social.icon />
                   </div>
                 </Link>
@@ -55,7 +62,7 @@ const Footer = () => {
       <hr className="h-1 bg-(--omori-black)" />
       <div className="flex flex-col gap-4">
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-2">
-          <p className="text-sm">
+          <p className="text-sm text-center md:text-left text-wrap">
             © 2025 OMORI Headspace Made With 💜 By Ondřej Pták
           </p>
           <div className="flex items-center gap-2 px-4 py-2 bg-(--omori-black) text-(--omori-white) text-sm">
@@ -65,7 +72,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="battle-box text-center p-6">
-          <p className="text-xs max-w-3xl mx-auto">
+          <p className="text-sm max-w-3xl mx-auto">
             This is a fan-made website. OMORI and all related characters are
             property of OMOCAT LLC. <br /> All content is used for
             non-commercial fan purposes only.
