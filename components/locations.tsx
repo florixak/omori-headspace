@@ -67,7 +67,7 @@ const Locations = () => {
     });
 
     tl.to(scrollRef.current, {
-      xPercent: -100 * (locations.length - 2),
+      xPercent: -100 * (locations.length - 1),
       ease: "none",
     });
   }, [isMobile, hydrated]);
@@ -100,35 +100,40 @@ const Locations = () => {
             Each location holds its own unique atmosphere and significance
             within the story.
           </p>
-          <div className={"min-w-screen"}>
-            <div
-              ref={scrollRef}
-              className={`${
-                isMobile
-                  ? "flex flex-col items-center gap-4 w-full"
-                  : "flex items-center justify-start h-full"
-              }`}
-            >
-              {isMobile ? (
-                <MobileLocationCard location={locations[0]} />
+        </div>
+        <div className="min-w-screen">
+          <div
+            ref={scrollRef}
+            className={`${
+              isMobile
+                ? "flex flex-col items-center gap-4 w-full"
+                : "flex items-center justify-start h-full w-full"
+            }`}
+          >
+            {isMobile ? (
+              <MobileLocationCard location={locations[0]} />
+            ) : (
+              <LocationCard location={locations[0]} />
+            )}
+            {locations.slice(1).map((location) => {
+              return isMobile ? (
+                <MobileLocationCard key={location.name} location={location} />
               ) : (
-                <LocationCard location={locations[0]} />
-              )}
-              {locations.slice(1).map((location) => {
-                return isMobile ? (
-                  <MobileLocationCard key={location.name} location={location} />
-                ) : (
-                  <LocationCard key={location.name} location={location} />
-                );
-              })}
-            </div>
+                <LocationCard key={location.name} location={location} />
+              );
+            })}
           </div>
-          <div>
-            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-white)">
-              There are many more locations to explore, each with its own story
-              to tell.
-            </p>
-          </div>
+        </div>
+
+        <div
+          className={`flex items-center justify-center text-center gap-2 mt-8 mx-1 md:mx-auto rpg-border pixel-corners p-6 w-fit bg-(--omori-white) ${
+            isMobile ? "text-sm flex-col" : "flex-row"
+          }`}
+        >
+          <span>
+            There are many more locations to explore, each with its own story to
+            tell.
+          </span>
         </div>
       </div>
     </section>
