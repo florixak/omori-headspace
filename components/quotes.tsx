@@ -36,7 +36,7 @@ const Quotes = () => {
       className="min-h-screen flex items-center justify-center px-6"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center my-16">
+        <div className="text-center mb-16">
           <div className="battle-box inline-block mb-6">
             <span className="text-sm opacity-70"> /| MEMORABLE QUOTES |\ </span>
           </div>
@@ -49,6 +49,7 @@ const Quotes = () => {
             Each quote holds its own unique significance within the story.
           </p>
         </div>
+
         <QuoteCard currentQuote={currentQuote} />
         <Navigation
           totalPages={quotes.length}
