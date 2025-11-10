@@ -29,7 +29,8 @@
 
     /* Typography */
     --font-game: "Courier New", monospace;
-    --font-display: "Comic Sans MS", cursive;
+    --font-display: "Comic Neue", "Comic Sans MS", "Arial Rounded MT Bold",
+      Arial, sans-serif;
   }
 }
 
