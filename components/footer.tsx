@@ -44,9 +44,12 @@ const Footer = () => {
           <h4 className="text-sm uppercase tracking-wide font-mono">CONNECT</h4>
           <div className="flex flex-row flex-wrap gap-2">
             {socials.map((social) => (
-              <Link key={social.label} href={social.href}>
+              <Link
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+              >
                 <div
-                  aria-label={social.label}
                   className={`rpg-border p-2 ${
                     space === "headspace"
                       ? "hover:bg-(--omori-purple)"
@@ -71,6 +74,7 @@ const Footer = () => {
             <a
               href="https://www.github.com/florixak"
               target="_blank"
+              rel="noopener noreferrer"
               className={
                 isHeadspace
                   ? "text-(--omori-purple) hover:underline"
