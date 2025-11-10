@@ -18,8 +18,11 @@ import {
   Droplets,
   Fish,
   Eclipse,
+  Twitter,
+  Facebook,
+  Instagram,
 } from "lucide-react";
-import { ForwardRefExoticComponent, RefAttributes } from "react";
+import { ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
 
 interface NavLink {
   label: string;
@@ -91,6 +94,14 @@ export interface Photo {
   caption: string;
   day: `${number}/${number}`;
   title: string;
+}
+
+interface Social {
+  href: string;
+  label: string;
+  icon: ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
+  >;
 }
 
 const navLinks: NavLink[] = [
@@ -598,6 +609,24 @@ const photos: Photo[] = [
   },
 ];
 
+const socials: Social[] = [
+  {
+    href: "#",
+    label: "X / Twitter",
+    icon: Twitter,
+  },
+  {
+    href: "#",
+    label: "Facebook",
+    icon: Facebook,
+  },
+  {
+    href: "#",
+    label: "Instagram",
+    icon: Instagram,
+  },
+];
+
 export {
   navLinks,
   floatingEmojis,
@@ -606,4 +635,5 @@ export {
   locations,
   quotes,
   photos,
+  socials,
 };

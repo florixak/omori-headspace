@@ -12,6 +12,7 @@ interface QuoteCardProps {
 
 const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   const quoteRef = useRef<HTMLParagraphElement>(null);
+  const quoteContainerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -33,6 +34,16 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
         });
       },
     });
+
+    gsap.fromTo(
+      quoteContainerRef.current,
+      { scale: 0.95 },
+      {
+        scale: 1,
+        duration: 0.6,
+        ease: "power2.out",
+      }
+    );
   }, [currentQuote]);
 
   const quote: Quote = quotes[currentQuote] || {
@@ -42,7 +53,10 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   };
 
   return (
-    <div className="max-w-6xl w-full min-h-[200px] md:min-h-[300px] ">
+    <div
+      ref={quoteContainerRef}
+      className="max-w-6xl w-full min-h-[200px] md:min-h-[300px] "
+    >
       <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6 bg-(--omori-white)">
         <QuoteIcon className="w-8 h-8 mb-4 text-(--omori-black) opacity-50" />
         <p

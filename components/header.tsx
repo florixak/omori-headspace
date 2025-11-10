@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import NavLink from "./nav-link";
 
 const Header = () => {
   // TODO: Finish mobile menu implementation
@@ -58,7 +59,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <span className="text-xl pixel-text">OMORI FAN SITE</span>
+            <span className="text-xl pixel-text">OMORI HEADSPACE</span>
           </div>
           <nav>
             <ul className="hidden md:flex items-center gap-1">
@@ -99,29 +100,6 @@ const Header = () => {
         </div>
       )}
     </>
-  );
-};
-
-interface NavLinkProps {
-  label: string;
-  href: string;
-  onClick: () => void;
-}
-
-const NavLink = ({ label, href, onClick }: NavLinkProps) => {
-  const { space } = useSpaceStore();
-  return (
-    <li
-      className={`px-4 py-2 text-sm border-2 border-transparent ${
-        space === "headspace"
-          ? "hover:bg-(--omori-purple)"
-          : "hover:bg-(--kel-orange)"
-      } hover:border-(--omori-black) transition-colors duration-200`}
-    >
-      <Link href={href} onClick={onClick}>
-        {label}
-      </Link>
-    </li>
   );
 };
 

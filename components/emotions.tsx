@@ -7,6 +7,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "react-responsive";
+import Title from "./title";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,17 +59,11 @@ const Emotions = () => {
       className="min-h-screen flex items-center justify-center overflow-hidden px-6 emotions-bg py-12"
     >
       <div className="max-w-7xl mx-auto space-y-20 md:space-y-52">
-        <div className="text-center">
-          <div className="battle-box inline-block mb-6">
-            <span className="text-sm opacity-70"> /| EMOTIONS |\ </span>
-          </div>
-
-          <h2 className="text-(--omori-black) mb-4 pixel-text">THE EMOTIONS</h2>
-
-          <p className="max-w-2xl mx-auto text-lg">
-            Each emotion has its own unique effects and characteristics.
-          </p>
-        </div>
+        <Title
+          heading="EMOTIONS"
+          title="THE EMOTIONS"
+          subtitle="Each emotion has its own unique effects and characteristics."
+        />
         <div
           ref={desktopRef}
           className="relative h-[300px] mx-auto hidden md:block"
@@ -88,9 +83,15 @@ const Emotions = () => {
             <MobileEmotionCard key={emotion.name} emotion={emotion} />
           ))}
         </div>
-        <p className="text-center text-sm opacity-70">
-          There are more emotions like AFRAID, ENRAGED, ... to discover!
-        </p>
+        <div
+          className={`flex items-center justify-center text-center gap-2 mt-8 mx-1 md:mx-auto rpg-border pixel-corners bg-(--omori-white) p-6 w-fit ${
+            isMobile ? "text-sm flex-col" : "flex-row"
+          }`}
+        >
+          <span>
+            There are more emotions like AFRAID, ENRAGED, ... to discover!
+          </span>
+        </div>
       </div>
     </section>
   );

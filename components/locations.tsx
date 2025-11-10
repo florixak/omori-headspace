@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "react-responsive";
+import Title from "./title";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,10 +37,11 @@ const Locations = () => {
       Array.from(cards).forEach((card) => {
         gsap.fromTo(
           card,
-          { opacity: 0, x: 50 },
+          { opacity: 0, scale: 0.8, rotate: -10 },
           {
             opacity: 1,
-            x: 0,
+            scale: 1,
+            rotate: 0,
             scrollTrigger: {
               trigger: card,
               start: "top 80%",
@@ -66,7 +68,7 @@ const Locations = () => {
     });
 
     tl.to(scrollRef.current, {
-      xPercent: -100 * (locations.length - 2),
+      xPercent: -100 * (locations.length - 1),
       ease: "none",
     });
   }, [isMobile, hydrated]);
@@ -86,22 +88,18 @@ const Locations = () => {
         🌸
       </div>
       <div className="max-w-screen mx-auto">
-        <div className="text-center">
-          <div className="battle-box inline-block mb-6">
-            <span className="text-sm opacity-70"> /| LOCATIONS |\ </span>
-          </div>
-
-          <h2 className="text-(--omori-black) mb-4 pixel-text">
-            THE LOCATIONS
-          </h2>
-
-          <p className="max-w-2xl mx-auto text-lg text-(--omori-black)">
-            Each location holds its own unique atmosphere and significance
-            within the story.
-          </p>
+        <Title
+          heading="LOCATIONS"
+          title="THE LOCATIONS"
+          subtitle="Each location holds its own unique atmosphere and significance within the story."
+        />
+        <div className="min-w-screen">
           <div
-            className={`mt-12 flex justify-center ${
-              isMobile ? "mb-4" : "mb-0"
+            ref={scrollRef}
+            className={`${
+              isMobile
+                ? "flex flex-col items-center gap-4 w-full"
+                : "flex items-center justify-start h-full w-full"
             }`}
           >
             {isMobile ? (
@@ -109,31 +107,25 @@ const Locations = () => {
             ) : (
               <LocationCard location={locations[0]} />
             )}
+            {locations.slice(1).map((location) => {
+              return isMobile ? (
+                <MobileLocationCard key={location.name} location={location} />
+              ) : (
+                <LocationCard key={location.name} location={location} />
+              );
+            })}
           </div>
-          <div className={"min-w-screen"}>
-            <div
-              ref={scrollRef}
-              className={`${
-                isMobile
-                  ? "flex flex-col items-center gap-4 w-full"
-                  : "flex items-center justify-start h-full"
-              }`}
-            >
-              {locations.slice(1).map((location) => {
-                return isMobile ? (
-                  <MobileLocationCard key={location.name} location={location} />
-                ) : (
-                  <LocationCard key={location.name} location={location} />
-                );
-              })}
-            </div>
-          </div>
-          <div>
-            <p className="mt-8 max-w-2xl mx-auto text-lg text-(--omori-white)">
-              There are many more locations to explore, each with its own story
-              to tell.
-            </p>
-          </div>
+        </div>
+
+        <div
+          className={`flex items-center justify-center text-center gap-2 mt-8 mx-1 md:mx-auto rpg-border pixel-corners p-6 w-fit bg-(--omori-white) ${
+            isMobile ? "text-sm flex-col" : "flex-row"
+          }`}
+        >
+          <span>
+            There are many more locations to explore, each with its own story to
+            tell.
+          </span>
         </div>
       </div>
     </section>
