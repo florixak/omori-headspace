@@ -5,7 +5,7 @@ interface TitleProps {
   className?: string;
 }
 
-const Title = ({ heading, title, subtitle, className }: TitleProps) => {
+const Title = ({ heading, title, subtitle, className = "" }: TitleProps) => {
   return (
     <div className={`text-center ${className}`}>
       <div className="battle-box inline-block mb-6">
@@ -14,7 +14,7 @@ const Title = ({ heading, title, subtitle, className }: TitleProps) => {
 
       <h2 className="text-(--omori-black) mb-4 pixel-text">{title}</h2>
 
-      <p className="max-w-2xl mx-auto text-lg">{subtitle}</p>
+      {subtitle && <p className="max-w-2xl mx-auto text-lg">{subtitle}</p>}
     </div>
   );
 };
