@@ -39,7 +39,7 @@
   }
 
   body {
-    @apply bg-[var(--headspace-bg)] text-[var(--omori-black)];
+    @apply bg-(--headspace-bg) text-(--omori-black);
     font-family: var(--font-game);
     line-height: 1.6;
   }
