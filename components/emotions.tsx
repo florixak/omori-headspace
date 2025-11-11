@@ -34,22 +34,13 @@ const Emotions = () => {
     const children = Array.from(ref.current?.children ?? []);
     if (!children.length) return;
 
-    if (isMobile) {
-      gsap.set(children, { opacity: 0, scale: 0 });
-    }
-
-    children.forEach((child, index) => {
-      tl.from(
-        child,
-        {
-          opacity: 0,
-          scale: 0,
-          duration: 1,
-          ease: "back.out(1.5)",
-          clearProps: "opacity,scale",
-        },
-        index * 0.1
-      );
+    tl.from(children, {
+      opacity: 0,
+      scale: 0,
+      duration: 0.4,
+      ease: "back.out(1.5)",
+      clearProps: "opacity,scale",
+      stagger: 0.07,
     });
   }, [isMobile]);
 
