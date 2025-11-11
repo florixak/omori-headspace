@@ -58,7 +58,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
     <button
       ref={cardRef}
       className={`
-        rpg-border bg-(--omori-white) w-full
+        rpg-border pixel-corners bg-(--omori-white) w-full
         ${isExpanded ? "shadow-lg" : ""}
         transition-all duration-300
       `}
