@@ -13,8 +13,9 @@ const Title = ({ heading, title, subtitle, className = "" }: TitleProps) => {
       </div>
 
       <h2 className="text-(--omori-black) mb-4 pixel-text">{title}</h2>
-
-      {subtitle && <p className="max-w-2xl mx-auto text-lg">{subtitle}</p>}
+      {subtitle ? (
+        <p className="max-w-2xl mx-auto text-lg">{subtitle}</p>
+      ) : null}
     </div>
   );
 };
