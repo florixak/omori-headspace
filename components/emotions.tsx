@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "react-responsive";
 import Title from "./title";
-import useHydrated from "@/hooks/hydrated-hook";
+import useHydrated from "@/hooks/use-hydrated";
 
 gsap.registerPlugin(ScrollTrigger);
 

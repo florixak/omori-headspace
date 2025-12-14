@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import { Album, MobileAlbum } from "./album";
 import Navigation from "./navigation";
 import Title from "./title";
-import useHydrated from "@/hooks/hydrated-hook";
+import useHydrated from "@/hooks/use-hydrated";
 
 export const PHOTOS_PER_PAGE = 6;
 

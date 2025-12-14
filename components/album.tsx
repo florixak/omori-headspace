@@ -1,7 +1,7 @@
 "use client";
 
 import { Photo, photos } from "@/constants";
-import useHydrated from "@/hooks/hydrated-hook";
+import useHydrated from "@/hooks/use-hydrated";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";

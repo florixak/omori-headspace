@@ -1,6 +1,6 @@
 "use client";
 
-import useHydrated from "@/hooks/hydrated-hook";
+import useHydrated from "@/hooks/use-hydrated";
 import useSpaceStore from "@/store/space-store";
 import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
