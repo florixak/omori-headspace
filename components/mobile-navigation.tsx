@@ -56,8 +56,9 @@ const MobileNavigation = ({ isOpen, toggleMenu }: MobileNavigationProps) => {
   if (!shouldRender) return null;
 
   return (
-    <div
+    <nav
       ref={menuRef}
+      aria-label="Mobile Navigation"
       className="md:hidden fixed top-22 left-0 right-0 w-full bg-(--omori-white) z-49"
     >
       <ul className="flex flex-col items-center gap-1 py-4">
@@ -70,7 +71,7 @@ const MobileNavigation = ({ isOpen, toggleMenu }: MobileNavigationProps) => {
           />
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 
