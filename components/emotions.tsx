@@ -8,11 +8,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "react-responsive";
 import Title from "./title";
+import useHydrated from "@/hooks/use-hydrated";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Emotions = () => {
   //TODO: Add Mewo with story bubble to info user about hovering / clicking
+  const hydrated = useHydrated();
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -43,6 +45,8 @@ const Emotions = () => {
       stagger: 0.07,
     });
   }, [isMobile]);
+
+  if (!hydrated) return null;
 
   return (
     <section

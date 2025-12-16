@@ -84,7 +84,7 @@ const Locations = () => {
         isMobile ? "px-6" : ""
       }`}
     >
-      <div className="absolute top-20 right-10 text-6xl opacity-30 float">
+      <div className="absolute top-20 right-6 md:right-12 text-6xl opacity-30 float">
         🌸
       </div>
       <div className="max-w-screen mx-auto">

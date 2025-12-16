@@ -6,20 +6,16 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import MobileNavigation from "./mobile-navigation";
 import NavLink from "./nav-link";
 
 const Header = () => {
-  // TODO: Finish mobile menu implementation
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { space } = useSpaceStore();
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > 100);
   };
 
   const toggleMenu = () => {
@@ -36,8 +32,10 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? "bg-(--omori-white) border-b-3" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || isMenuOpen
+            ? "bg-(--omori-white) border-b-3"
+            : "bg-transparent"
         }`}
       >
         <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-6 py-4">
@@ -85,20 +83,8 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      {isMenuOpen && (
-        <div className="md:hidden fixed top-22 left-0 right-0 bg-(--omori-white) z-30">
-          <ul className="flex flex-col items-center gap-1 py-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.href}
-                label={link.label}
-                href={link.href}
-                onClick={toggleMenu}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
+
+      <MobileNavigation isOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </>
   );
 };

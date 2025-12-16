@@ -1,5 +1,6 @@
 "use client";
 
+import useHydrated from "@/hooks/use-hydrated";
 import useSpaceStore from "@/store/space-store";
 import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
 import { useMediaQuery } from "react-responsive";
@@ -19,9 +20,13 @@ const Navigation = ({
   handleNextPage,
   handlePreviousPage,
 }: NavigationProps) => {
+  const hydrated = useHydrated();
   const { space } = useSpaceStore();
   const isMobile = useMediaQuery({ maxWidth: "1024px" });
   const isHeadspace = space === "headspace";
+
+  if (!hydrated) return null;
+
   return (
     <div
       className={`flex items-center justify-between gap-4 mt-6 ${

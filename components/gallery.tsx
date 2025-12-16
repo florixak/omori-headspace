@@ -1,18 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import { photos } from "@/constants";
-import { Album, MobileAlbum } from "./album";
-import { useMediaQuery } from "react-responsive";
-import Navigation from "./navigation";
 import { Camera } from "lucide-react";
+import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { Album, MobileAlbum } from "./album";
+import Navigation from "./navigation";
 import Title from "./title";
+import useHydrated from "@/hooks/use-hydrated";
 
 export const PHOTOS_PER_PAGE = 6;
 
 const Gallery = () => {
+  const hydrated = useHydrated();
   const [page, setPage] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: "1024px" });
+
+  if (!hydrated) return null;
 
   const totalPages = isMobile
     ? photos.length

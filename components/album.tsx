@@ -1,19 +1,20 @@
 "use client";
 
-import { useRef } from "react";
-import PhotoCard from "./photo-card";
 import { Photo, photos } from "@/constants";
-import { PHOTOS_PER_PAGE } from "./gallery";
+import useHydrated from "@/hooks/use-hydrated";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useRef } from "react";
+import { PHOTOS_PER_PAGE } from "./gallery";
+import PhotoCard from "./photo-card";
 
 interface AlbumProps {
   page: number;
 }
 
 const MobileAlbum = ({ page }: AlbumProps) => {
+  const hydrated = useHydrated();
   const albumRef = useRef<HTMLDivElement>(null);
-  const photo = photos[page];
 
   useGSAP(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -33,10 +34,12 @@ const MobileAlbum = ({ page }: AlbumProps) => {
     );
   }, [page]);
 
+  if (!hydrated) return null;
+
+  const photo = photos[page];
   if (!photo) {
     return null;
   }
-
   return (
     <div
       ref={albumRef}
@@ -48,13 +51,8 @@ const MobileAlbum = ({ page }: AlbumProps) => {
 };
 
 const Album = ({ page }: AlbumProps) => {
+  const hydrated = useHydrated();
   const albumRef = useRef<HTMLDivElement>(null);
-
-  const startIdx = page * PHOTOS_PER_PAGE;
-  const spreadPhotos: Photo[] = photos.slice(
-    startIdx,
-    startIdx + PHOTOS_PER_PAGE
-  );
 
   useGSAP(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -73,6 +71,14 @@ const Album = ({ page }: AlbumProps) => {
       }
     );
   }, [page]);
+
+  if (!hydrated) return null;
+
+  const startIdx = page * PHOTOS_PER_PAGE;
+  const spreadPhotos: Photo[] = photos.slice(
+    startIdx,
+    startIdx + PHOTOS_PER_PAGE
+  );
 
   return (
     <div
