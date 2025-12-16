@@ -22,7 +22,7 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
-import { ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface NavLink {
   label: string;
@@ -439,44 +439,84 @@ const locations: Location[] = [
 
 const quotes: Quote[] = [
   {
-    text: "Welcome to White Space. You've been living here for as long as you can remember.",
-    author: "WHITE SPACE",
+    text: "You have been living here for as long as you can remember.",
+    author: "Narrator",
   },
   {
-    text: "Everything is going to be okay.",
-    author: "HEADSPACE",
+    text: "It’s okay to feel sad sometimes. That’s how you know when you’re happy.",
+    author: "Basil",
   },
   {
-    text: "When I flex, I feel my best!",
-    author: "PLUTO",
+    text: "Everything is going to be okay. No matter what happens. Promise me that we’ll always be there for each other.",
+    author: "Mari",
   },
   {
-    text: "You are not alone.",
-    author: "BASIL",
+    text: "No matter how deep you bury it, the past will always find its way back to you.",
+    author: "Basil",
+  },
+  {
+    text: "Why does parting have to hurt so much?",
+    author: "Kel",
+  },
+  {
+    text: "Memories can be painful. To forget may be a blessing.",
+    author: "Narrator",
+  },
+  {
+    text: "You really are my best friend… Always there when I need you.",
+    author: "Omori",
+  },
+  {
+    text: "Hey… don’t worry, everything will be okay!",
+    author: "Kel",
+  },
+  {
+    text: "Remember our promise? Always together… even when we’re apart.",
+    author: "Mari",
+  },
+  {
+    text: "It’s not just about facing your fears. It’s also about facing your past.",
+    author: "Hero",
+  },
+  {
+    text: "When you’re here, everything’s not so scary.",
+    author: "Aubrey",
   },
   {
     text: "I... I have to tell you something.",
-    author: "SUNNY",
+    author: "Sunny",
   },
   {
-    text: "Your friends will always be there for you.",
-    author: "NARRATOR",
+    text: "Who am I to you?",
+    author: "Omori",
   },
   {
-    text: "Waiting for something to happen?",
-    author: "STRANGER",
+    text: "There’s always another day.",
+    author: "Aubrey",
   },
   {
-    text: "Let's make some memories together.",
-    author: "MARI",
+    text: "Bravery isn’t about not being afraid. It’s about being afraid and doing what’s right anyway.",
+    author: "Hero",
   },
   {
-    text: "It's a beautiful day outside.",
-    author: "KEL",
+    text: "It’s okay to be afraid… as long as we face our fears together.",
+    author: "Omori",
   },
   {
-    text: "You'll be okay.",
-    author: "HERO",
+    text: "What is real and what is imagined is not always clear the first time.",
+    author: "Omori",
+  },
+  {
+    text: "Healing doesn’t mean the damage never existed. It means the damage no longer controls our lives.",
+    author: "Mari",
+  },
+  {
+    text: "It’s okay to fall apart sometimes. Tacos fall apart, and we still love them.",
+    author: "Omori",
+  },
+  {
+    text: "Reality is often disappointing. That’s why we have our imaginations.",
+    author: "Omori",
   },
 ];
 
