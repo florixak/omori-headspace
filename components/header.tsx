@@ -10,17 +10,12 @@ import MobileNavigation from "./mobile-navigation";
 import NavLink from "./nav-link";
 
 const Header = () => {
-  // TODO: Finish mobile menu implementation
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const { space } = useSpaceStore();
 
   const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > 100);
   };
 
   const toggleMenu = () => {
