@@ -31,9 +31,12 @@ const Navigation = ({
   const hydrated = useHydrated();
   const { space } = useSpaceStore();
   const isMobile = useMediaQuery({ maxWidth: "1024px" });
-  const isHeadspace = space === "headspace";
 
   if (!hydrated) return null;
+
+  const isHeadspace = space === "headspace";
+  const displayPlayButton =
+    hasInterval && isRunning !== undefined && toggleRunning;
 
   return (
     <div
@@ -54,18 +57,14 @@ const Navigation = ({
         <span className="hidden sm:block">PREV</span>
       </button>
       <div className="flex flex-col items-center gap-4">
-        <Activity
-          mode={
-            hasInterval && isRunning !== undefined && toggleRunning
-              ? "visible"
-              : "hidden"
-          }
-        >
-          <PlayButton
-            isHeadspace={isHeadspace}
-            isRunning={isRunning!}
-            toggleRunning={toggleRunning!}
-          />
+        <Activity mode={displayPlayButton ? "visible" : "hidden"}>
+          {displayPlayButton && (
+            <PlayButton
+              isHeadspace={isHeadspace}
+              isRunning={isRunning}
+              toggleRunning={toggleRunning}
+            />
+          )}
         </Activity>
 
         <div className="gap-2 flex items-center justify-center flex-wrap">
