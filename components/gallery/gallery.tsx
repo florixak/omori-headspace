@@ -2,11 +2,11 @@
 
 import { photos } from "@/constants";
 import { Camera } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useEffectEvent, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Album, MobileAlbum } from "./album";
-import Navigation from "./navigation";
-import Title from "./title";
+import Navigation from "../navigation/navigation";
+import Title from "../title";
 import useHydrated from "@/hooks/use-hydrated";
 
 export const PHOTOS_PER_PAGE = 6;
@@ -15,6 +15,14 @@ const Gallery = () => {
   const hydrated = useHydrated();
   const [page, setPage] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: "1024px" });
+
+  const handlePage = useEffectEvent(() => {
+    setPage(0);
+  });
+
+  useEffect(() => {
+    handlePage();
+  }, [isMobile]);
 
   if (!hydrated) return null;
 
@@ -44,7 +52,7 @@ const Gallery = () => {
           subtitle="Precious memories with friends..."
           className="mb-16"
         />
-        {isMobile ? <MobileAlbum page={safePage} /> : <Album page={page} />}
+        {isMobile ? <MobileAlbum page={safePage} /> : <Album page={safePage} />}
         <Navigation
           totalPages={totalPages}
           page={safePage}

@@ -5,7 +5,7 @@ import useSpaceStore from "@/store/space-store";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import CharacterCard from "./character-card";
-import Title from "./title";
+import Title from "../title";
 
 gsap.registerPlugin(ScrollTrigger);
 

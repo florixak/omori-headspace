@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "react-responsive";
-import Title from "./title";
+import Title from "../title";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,7 +59,7 @@ const Locations = () => {
       scrollTrigger: {
         trigger: scrollRef.current,
         start: "center center+=35",
-        end: () => `+=${scrollRef.current!.offsetWidth}`,
+        end: () => `+=${scrollRef.current?.offsetWidth ?? 0}`,
         scrub: 1,
         pin: true,
         anticipatePin: 1,

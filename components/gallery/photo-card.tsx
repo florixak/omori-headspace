@@ -1,8 +1,8 @@
 "use client";
 
 import { Photo } from "@/constants";
+import useHydrated from "@/hooks/use-hydrated";
 import Image from "next/image";
-import { useEffect, useEffectEvent, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 interface PhotoCardProps {
@@ -12,7 +12,7 @@ interface PhotoCardProps {
 }
 
 const PhotoCard = ({ photo, position, index }: PhotoCardProps) => {
-  const [hydrated, setHydrated] = useState(false);
+  const hydrated = useHydrated();
   const isMobile = useMediaQuery(
     { maxWidth: "1024px" },
     undefined,
@@ -22,14 +22,6 @@ const PhotoCard = ({ photo, position, index }: PhotoCardProps) => {
 
   const imageWidth = isMobile ? 200 : 160;
   const imageHeight = isMobile ? 220 : 180;
-
-  const handleHydration = useEffectEvent(() => {
-    setHydrated(true);
-  });
-
-  useEffect(() => {
-    handleHydration();
-  }, []);
 
   if (!hydrated) {
     return null;

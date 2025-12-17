@@ -9,7 +9,7 @@ interface LocationProps {
 
 const MobileLocationCard = ({ location }: LocationProps) => {
   return (
-    <div className="relative emotions-bg flex flex-col items-center justify-center p-4 md:p-8 rpg-border pixel-corners shadow-xl w-full max-w-sm h-96">
+    <div className="relative emotions-bg flex flex-col items-center justify-center p-4 md:p-8 rpg-border pixel-corners shadow-xl w-full max-w-sm min-h-96">
       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10 md:w-32 md:h-6 md:top-8"></div>
 
       <div className="relative w-full h-40 md:h-56 mb-4 rpg-border pixel-corners overflow-hidden shadow-xl">
@@ -41,7 +41,7 @@ const MobileLocationCard = ({ location }: LocationProps) => {
 
 const LocationCard = ({ location }: LocationProps) => {
   return (
-    <section className="min-h-screen min-w-screen flex items-center justify-center">
+    <section className="min-h-screen min-w-full flex items-center justify-center">
       <div className="relative emotions-bg flex flex-col items-center justify-center p-8 md:p-16 lg:p-36 rpg-border pixel-corners shadow-xl">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10"></div>
         <div className="relative w-full max-w-xl h-64 mb-8 rpg-border pixel-corners overflow-hidden shadow-xl">

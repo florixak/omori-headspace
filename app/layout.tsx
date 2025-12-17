@@ -21,6 +21,23 @@ export const metadata: Metadata = {
     "Tribute",
   ],
   creator: "Ondřej Pták",
+  openGraph: {
+    title: "OMORI HEADSPACE",
+    description:
+      "A fan site dedicated to the game OMORI, exploring its characters, locations, quotes, and more.",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    siteName: "OMORI HEADSPACE",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "OMORI HEADSPACE",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

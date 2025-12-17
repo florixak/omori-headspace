@@ -37,6 +37,7 @@ const MobileAlbum = ({ page }: AlbumProps) => {
   if (!hydrated) return null;
 
   const photo = photos[page];
+
   if (!photo) {
     return null;
   }
@@ -92,6 +93,9 @@ const Album = ({ page }: AlbumProps) => {
             "absolute top-11 left-0",
             "absolute -bottom-10 left-2",
           ];
+          if (!photo) {
+            return null;
+          }
           return (
             <PhotoCard
               key={photo.src}

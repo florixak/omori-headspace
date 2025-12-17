@@ -22,7 +22,7 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
-import { ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface NavLink {
   label: string;
@@ -147,11 +147,11 @@ const characters: Character = {
   whitespace: [
     {
       name: "OMORI",
-      trait: "The Silent Protagonist",
+      trait: "The Silent Protector",
       description:
-        "A boy who wears a black tank top, long black socks, and black-striped shorts.",
+        "Sunny's dream alter-ego, calm and expressionless, representing his retreat from reality.",
       imgSrc: "/characters/omori.webp",
-      emoji: "💀",
+      emoji: "⚫",
       emotion: "NEUTRAL",
       weapon: "KNIFE",
       color: "var(--omori-purple)",
@@ -159,23 +159,22 @@ const characters: Character = {
     },
     {
       name: "AUBREY",
-      trait: "The Energetic Friend",
-      description:
-        "A girl with a short temper and even shorter patience for those who annoy her.",
+      trait: "The Enthusiastic Friend",
+      description: "Bubbly, energetic, and fiercely loyal with a short temper.",
       imgSrc: "/characters/aubrey.webp",
       emoji: "🎀",
       emotion: "ANGRY",
-      weapon: "BASEBALL BAT",
+      weapon: "PLUSHIE",
       color: "var(--aubrey-pink)",
       icon: Heart,
     },
     {
       name: "KEL",
-      trait: "The Athletic Optimist",
+      trait: "The Playful Jock",
       description:
-        "An upbeat kid who can cheer up anyone with his happy-go-lucky attitude.",
+        "Upbeat, carefree, loves sports, and often teases his friends.",
       imgSrc: "/characters/kel.webp",
-      emoji: "🏀",
+      emoji: "🍊",
       emotion: "HAPPY",
       weapon: "BASKETBALL",
       color: "var(--kel-orange)",
@@ -183,11 +182,11 @@ const characters: Character = {
     },
     {
       name: "HERO",
-      trait: "The Caring Older Brother",
+      trait: "The Gentle Leader",
       description:
-        "The oldest of the group. He is kind, understanding, and always there to help.",
+        "Kind, responsible, skilled cook, and acts as the group's mediator.",
       imgSrc: "/characters/hero.webp",
-      emoji: "🍳",
+      emoji: "💙",
       emotion: "NEUTRAL",
       weapon: "FRYING PAN",
       color: "var(--hero-cyan)",
@@ -195,24 +194,25 @@ const characters: Character = {
     },
     {
       name: "BASIL",
-      trait: "The Gentle Photographer",
-      description: "A shy boy who loves taking care of plants and photography.",
+      trait: "The Sensitive Soul",
+      description:
+        "Shy, soft-spoken, loves plants and photography, prone to anxiety.",
       imgSrc: "/characters/basil.webp",
-      emoji: "🌿",
+      emoji: "🌻",
       emotion: "AFRAID",
-      weapon: "SHEARS",
+      weapon: "GARDENING SHEARS",
       color: "var(--basil-green)",
       icon: Leaf,
     },
     {
       name: "MARI",
-      trait: "The Mysterious Sister",
+      trait: "The Idealized Sister",
       description:
-        "A caring older sister who always knows how to make everyone smile.",
+        "A loving, supportive, and comforting presence, representing Sunny's perfect memory.",
       imgSrc: "/characters/mari.webp",
-      emoji: "🌸",
+      emoji: "💜",
       emotion: "HAPPY",
-      weapon: "UMBRELLA",
+      weapon: "N/A",
       color: "var(--mari-red)",
       icon: Flower,
     },
@@ -220,11 +220,11 @@ const characters: Character = {
   realWorld: [
     {
       name: "SUNNY",
-      trait: "The Real-World Counterpart",
+      trait: "The Reclusive Protagonist",
       description:
-        "Sunny is the real-world counterpart of Omori. He is a quiet boy.",
+        "Quiet boy, isolated for four years, struggling with guilt and depression.",
       imgSrc: "/characters/sunny.webp",
-      emoji: "😶",
+      emoji: "🏠",
       emotion: "NEUTRAL",
       weapon: "KNIFE",
       color: "var(--omori-purple)",
@@ -232,22 +232,23 @@ const characters: Character = {
     },
     {
       name: "AUBREY",
-      trait: "The Energetic Friend",
-      description: "Aubrey is strong-willed and protective of her friends.",
+      trait: "The Troubled Rebel",
+      description:
+        "Tough, rebellious leader of The Hooligans, harbors deep grief and resentment.",
       imgSrc: "/characters/aubrey-real.webp",
-      emoji: "🎀",
-      emotion: "HAPPY",
+      emoji: "💔",
+      emotion: "ANGRY",
       weapon: "BASEBALL BAT",
       color: "var(--aubrey-pink)",
       icon: Heart,
     },
     {
       name: "KEL",
-      trait: "The Athletic Optimist",
+      trait: "The Persistent Optimist",
       description:
-        "Kel is a cheerful and energetic character who loves sports and physical activities.",
+        "Energetic and outgoing, tries to rekindle old friendships and help Sunny.",
       imgSrc: "/characters/kel-real.webp",
-      emoji: "🏀",
+      emoji: "🏃",
       emotion: "HAPPY",
       weapon: "BASKETBALL",
       color: "var(--kel-orange)",
@@ -255,36 +256,37 @@ const characters: Character = {
     },
     {
       name: "HERO",
-      trait: "The Caring Older Brother",
-      description: "Hero is a kind-hearted and responsible character.",
+      trait: "The Grieving Achiever",
+      description:
+        "Kind, responsible, but carries heavy grief over Mari, tries to support friends.",
       imgSrc: "/characters/hero-real.webp",
-      emoji: "🍳",
-      emotion: "NEUTRAL",
+      emoji: "📚",
+      emotion: "SAD",
       weapon: "FRYING PAN",
       color: "var(--hero-cyan)",
       icon: Shield,
     },
     {
       name: "BASIL",
-      trait: "The Gentle Photographer",
+      trait: "The Anxious Friend",
       description:
-        "Basil is a shy and sensitive character who has a passion for photography.",
+        "Highly anxious, fragile, traumatized by the past, struggles with paranoia.",
       imgSrc: "/characters/basil-real.webp",
-      emoji: "🌿",
-      emotion: "NEUTRAL",
-      weapon: "SHEARS",
+      emoji: "🥀",
+      emotion: "AFRAID",
+      weapon: "GARDENING SHEARS",
       color: "var(--basil-green)",
       icon: Leaf,
     },
     {
       name: "MARI",
-      trait: "The Mysterious Sister",
+      trait: "The Beloved Memory",
       description:
-        "Mari is Sunny's older sister, known for her enigmatic presence and caring nature.",
+        "Sunny's deceased older sister, remembered fondly in flashbacks and memories.",
       imgSrc: "/characters/mari-real.webp",
-      emoji: "🌸",
+      emoji: "👻",
       emotion: "HAPPY",
-      weapon: "UMBRELLA",
+      weapon: "N/A",
       color: "var(--mari-red)",
       icon: Flower,
     },
@@ -312,7 +314,7 @@ const emotions: Emotion[] = [
     color: "var(--happy-yellow)",
     emoji: "😊",
     icon: Smile,
-    effect: "+1 SPEED, -1 HIT RATE",
+    effect: "⬆ LUCK, ⬆ SPEED, ⬇ HIT RATE",
     description: "Feeling joyful and energetic! Everything seems brighter.",
     imgSrc: {
       headspace: "/emotions/happy.webp",
@@ -327,7 +329,7 @@ const emotions: Emotion[] = [
     color: "var(--sad-blue)",
     emoji: "😢",
     icon: Frown,
-    effect: "+1 DEFENSE, -1 SPEED",
+    effect: "⬆ DEFENSE, ⬇ SPEED, SOME DMG TO HP -> JUICE",
     description: "Feeling down and sluggish. The world feels heavy.",
     imgSrc: {
       headspace: "/emotions/sad.webp",
@@ -342,7 +344,7 @@ const emotions: Emotion[] = [
     color: "var(--angry-red)",
     emoji: "😡",
     icon: Flame,
-    effect: "+1 ATTACK, -1 DEFENSE",
+    effect: "⬆ ATTACK, ⬇ DEFENSE",
     description: "Filled with rage! Ready to lash out at anything.",
     imgSrc: {
       headspace: "/emotions/angry.webp",
@@ -439,44 +441,84 @@ const locations: Location[] = [
 
 const quotes: Quote[] = [
   {
-    text: "Welcome to White Space. You've been living here for as long as you can remember.",
-    author: "WHITE SPACE",
+    text: "You have been living here for as long as you can remember.",
+    author: "Narrator",
   },
   {
-    text: "Everything is going to be okay.",
-    author: "HEADSPACE",
+    text: "It’s okay to feel sad sometimes. That’s how you know when you’re happy.",
+    author: "Basil",
   },
   {
-    text: "When I flex, I feel my best!",
-    author: "PLUTO",
+    text: "Everything is going to be okay. No matter what happens. Promise me that we’ll always be there for each other.",
+    author: "Mari",
   },
   {
-    text: "You are not alone.",
-    author: "BASIL",
+    text: "No matter how deep you bury it, the past will always find its way back to you.",
+    author: "Basil",
+  },
+  {
+    text: "Why does parting have to hurt so much?",
+    author: "Kel",
+  },
+  {
+    text: "Memories can be painful. To forget may be a blessing.",
+    author: "Narrator",
+  },
+  {
+    text: "You really are my best friend… Always there when I need you.",
+    author: "Omori",
+  },
+  {
+    text: "Hey… don’t worry, everything will be okay!",
+    author: "Kel",
+  },
+  {
+    text: "Remember our promise? Always together… even when we’re apart.",
+    author: "Mari",
+  },
+  {
+    text: "It’s not just about facing your fears. It’s also about facing your past.",
+    author: "Hero",
+  },
+  {
+    text: "When you’re here, everything’s not so scary.",
+    author: "Aubrey",
   },
   {
     text: "I... I have to tell you something.",
-    author: "SUNNY",
+    author: "Sunny",
   },
   {
-    text: "Your friends will always be there for you.",
-    author: "NARRATOR",
+    text: "Who am I to you?",
+    author: "Omori",
   },
   {
-    text: "Waiting for something to happen?",
-    author: "STRANGER",
+    text: "There’s always another day.",
+    author: "Aubrey",
   },
   {
-    text: "Let's make some memories together.",
-    author: "MARI",
+    text: "Bravery isn’t about not being afraid. It’s about being afraid and doing what’s right anyway.",
+    author: "Hero",
   },
   {
-    text: "It's a beautiful day outside.",
-    author: "KEL",
+    text: "It’s okay to be afraid… as long as we face our fears together.",
+    author: "Omori",
   },
   {
-    text: "You'll be okay.",
-    author: "HERO",
+    text: "What is real and what is imagined is not always clear the first time.",
+    author: "Omori",
+  },
+  {
+    text: "Healing doesn’t mean the damage never existed. It means the damage no longer controls our lives.",
+    author: "Mari",
+  },
+  {
+    text: "It’s okay to fall apart sometimes. Tacos fall apart, and we still love them.",
+    author: "Omori",
+  },
+  {
+    text: "Reality is often disappointing. That’s why we have our imaginations.",
+    author: "Omori",
   },
 ];
 
