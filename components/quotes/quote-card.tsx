@@ -18,7 +18,8 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (!quoteRef.current || prefersReducedMotion) return;
+    if (!quoteRef.current || !quoteContainerRef.current || prefersReducedMotion)
+      return;
 
     gsap.to(quoteRef.current, {
       opacity: 0,

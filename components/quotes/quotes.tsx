@@ -3,11 +3,12 @@
 import { useEffect, useEffectEvent, useState } from "react";
 import QuoteCard from "./quote-card";
 import { quotes } from "@/constants";
-import Navigation from "./navigation";
-import Title from "./title";
+import Navigation from "../navigation/navigation";
+import Title from "../title";
 
 const Quotes = () => {
   const [currentQuote, setCurrentQuote] = useState(0);
+  const [isRunning, setIsRunning] = useState(true);
 
   const handleNextQuote = () => {
     setCurrentQuote((prevQuote) => (prevQuote + 1) % quotes.length);
@@ -23,13 +24,18 @@ const Quotes = () => {
     setCurrentQuote((prevQuote) => (prevQuote + 1) % quotes.length);
   });
 
+  const toggleRunning = () => {
+    setIsRunning((prev) => !prev);
+  };
+
   useEffect(() => {
+    if (!isRunning) return;
     const interval = setInterval(() => {
       handleQuoteChange();
     }, 8000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isRunning]);
 
   return (
     <section
@@ -50,6 +56,9 @@ const Quotes = () => {
           setPage={setCurrentQuote}
           handleNextPage={handleNextQuote}
           handlePreviousPage={handlePreviousQuote}
+          hasInterval={true}
+          toggleRunning={toggleRunning}
+          isRunning={isRunning}
         />
       </div>
     </section>
