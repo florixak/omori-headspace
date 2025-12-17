@@ -314,7 +314,7 @@ const emotions: Emotion[] = [
     color: "var(--happy-yellow)",
     emoji: "😊",
     icon: Smile,
-    effect: "+1 SPEED, -1 HIT RATE",
+    effect: "⬆ LUCK, ⬆ SPEED, ⬇ HIT RATE",
     description: "Feeling joyful and energetic! Everything seems brighter.",
     imgSrc: {
       headspace: "/emotions/happy.webp",
@@ -329,7 +329,7 @@ const emotions: Emotion[] = [
     color: "var(--sad-blue)",
     emoji: "😢",
     icon: Frown,
-    effect: "+1 DEFENSE, -1 SPEED",
+    effect: "⬆ DEFENSE, ⬇ SPEED, SOME DMG TO HP -> JUICE",
     description: "Feeling down and sluggish. The world feels heavy.",
     imgSrc: {
       headspace: "/emotions/sad.webp",
@@ -344,7 +344,7 @@ const emotions: Emotion[] = [
     color: "var(--angry-red)",
     emoji: "😡",
     icon: Flame,
-    effect: "+1 ATTACK, -1 DEFENSE",
+    effect: "⬆ ATTACK, ⬇ DEFENSE",
     description: "Filled with rage! Ready to lash out at anything.",
     imgSrc: {
       headspace: "/emotions/angry.webp",
