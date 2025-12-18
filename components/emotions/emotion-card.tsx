@@ -12,16 +12,18 @@ import {
 } from "@/components/ui/hover-card";
 import { getColorOfEmotion } from "@/lib/utils";
 import useSpaceStore from "@/store/space-store";
+import useEmotion from "@/hooks/use-emotion";
 
 interface EmotionCardProps {
   emotion: Emotion;
 }
 
 const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
+  const { space } = useSpaceStore();
+  const { emotionEffectText } = useEmotion({ emotion });
   const [isExpanded, setIsExpanded] = useState(false);
   const detailsRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLButtonElement>(null);
-  const { space } = useSpaceStore();
 
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
@@ -58,7 +60,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
     <button
       ref={cardRef}
       className={`
-        rpg-border pixel-corners bg-(--omori-white) w-full
+        rpg-border bg-(--omori-white) w-full
         ${isExpanded ? "shadow-lg" : ""}
         transition-all duration-300
       `}
@@ -81,8 +83,8 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           <h3 style={textColor} className="font-bold text-lg pixel-text">
             {emotion.emoji} {emotion.name}
           </h3>
-          <div className="bg-black text-(--omori-white) px-2 py-1 text-xs mt-1 inline-block">
-            {emotion.effect}
+          <div className="bg-black text-(--omori-white) px-2 py-1 text-xs mt-1 inline-block w-full">
+            {emotionEffectText()}
           </div>
         </div>
 
@@ -133,11 +135,12 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
 };
 
 const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
+  const { space } = useSpaceStore();
+  const { emotionEffectText } = useEmotion({ emotion });
+  const [isOpen, setIsOpen] = useState(false);
+
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
-  const [isOpen, setIsOpen] = useState(false);
-  const { space } = useSpaceStore();
-
   const isHeadspace = space === "headspace";
 
   const handleTabletClick = () => {
@@ -190,7 +193,7 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
           </span>
         </p>
         <div className="p-2 bg-black text-(--omori-white) text-sm">
-          <span>{emotion.effect}</span>
+          {emotionEffectText()}
         </div>
         <p className="my-2 text-sm">{emotion.description}</p>
         <div className="space-y-2 text-sm">

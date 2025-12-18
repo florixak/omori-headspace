@@ -62,7 +62,17 @@ export interface Emotion {
   icon: ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
   >;
-  effect: string;
+  effect: {
+    type?: "increase" | "decrease" | "some damage to HP";
+    stat:
+      | "ATTACK"
+      | "DEFENSE"
+      | "SPEED"
+      | "LUCK"
+      | "JUICE"
+      | "HIT RATE"
+      | "No effect";
+  }[];
   color: `var(--${string})`;
   description: string;
   imgSrc: {
@@ -299,7 +309,7 @@ const emotions: Emotion[] = [
     color: "var(--neutral-gray)",
     emoji: "😐",
     icon: Ghost,
-    effect: "No effect",
+    effect: [{ stat: "No effect" }],
     description: "Feeling indifferent. Nothing seems to matter.",
     imgSrc: {
       headspace: "/emotions/neutral.webp",
@@ -314,7 +324,11 @@ const emotions: Emotion[] = [
     color: "var(--happy-yellow)",
     emoji: "😊",
     icon: Smile,
-    effect: "⬆ LUCK, ⬆ SPEED, ⬇ HIT RATE",
+    effect: [
+      { type: "increase", stat: "LUCK" },
+      { type: "increase", stat: "SPEED" },
+      { type: "decrease", stat: "HIT RATE" },
+    ],
     description: "Feeling joyful and energetic! Everything seems brighter.",
     imgSrc: {
       headspace: "/emotions/happy.webp",
@@ -329,7 +343,11 @@ const emotions: Emotion[] = [
     color: "var(--sad-blue)",
     emoji: "😢",
     icon: Frown,
-    effect: "⬆ DEFENSE, ⬇ SPEED, SOME DMG TO HP -> JUICE",
+    effect: [
+      { type: "increase", stat: "DEFENSE" },
+      { type: "decrease", stat: "SPEED" },
+      { type: "some damage to HP", stat: "JUICE" },
+    ],
     description: "Feeling down and sluggish. The world feels heavy.",
     imgSrc: {
       headspace: "/emotions/sad.webp",
@@ -344,7 +362,10 @@ const emotions: Emotion[] = [
     color: "var(--angry-red)",
     emoji: "😡",
     icon: Flame,
-    effect: "⬆ ATTACK, ⬇ DEFENSE",
+    effect: [
+      { type: "increase", stat: "ATTACK" },
+      { type: "decrease", stat: "DEFENSE" },
+    ],
     description: "Filled with rage! Ready to lash out at anything.",
     imgSrc: {
       headspace: "/emotions/angry.webp",
