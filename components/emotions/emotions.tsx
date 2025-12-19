@@ -13,13 +13,13 @@ import useHydrated from "@/hooks/use-hydrated";
 gsap.registerPlugin(ScrollTrigger);
 
 const Emotions = () => {
-  //TODO: Add Mewo with story bubble to info user about hovering / clicking
   const hydrated = useHydrated();
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useGSAP(() => {
+    if (!hydrated) return;
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -44,7 +44,7 @@ const Emotions = () => {
       clearProps: "opacity,scale",
       stagger: 0.07,
     });
-  }, [isMobile]);
+  }, [isMobile, hydrated]);
 
   if (!hydrated) return null;
 
