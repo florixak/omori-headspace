@@ -1,18 +1,16 @@
 "use client";
 
-import { Emotion } from "@/constants";
-import Image from "next/image";
-import { useState, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import {
   HoverCard,
-  HoverCardTrigger,
   HoverCardContent,
+  HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Emotion } from "@/constants";
+import useEmotion from "@/hooks/use-emotion";
 import { getColorOfEmotion } from "@/lib/utils";
 import useSpaceStore from "@/store/space-store";
-import useEmotion from "@/hooks/use-emotion";
+import Image from "next/image";
+import { useState } from "react";
 
 interface EmotionCardProps {
   emotion: Emotion;
@@ -21,50 +19,17 @@ interface EmotionCardProps {
 const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
   const { space } = useSpaceStore();
   const { emotionEffectText } = useEmotion({ emotion });
-  const [isExpanded, setIsExpanded] = useState(false);
-  const detailsRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLButtonElement>(null);
 
   const textColor = { color: emotion.color };
   const borderColor = { borderColor: emotion.color };
   const isHeadspace = space === "headspace";
 
-  useGSAP(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (!detailsRef.current || prefersReducedMotion) return;
-
-    if (isExpanded) {
-      gsap.to(detailsRef.current, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.to(detailsRef.current, {
-        height: 0,
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.in",
-      });
-    }
-  }, [isExpanded]);
-
-  const handleClick = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
-    <button
-      ref={cardRef}
+    <div
+      aria-label="Emotion Card"
       className={`
-        rpg-border bg-(--omori-white) w-full
-        ${isExpanded ? "shadow-lg" : ""}
-        transition-all duration-300
+        relative rpg-border bg-(--omori-white) w-full transition-all duration-300
       `}
-      onClick={handleClick}
     >
       <div className="flex items-center gap-4 p-3 cursor-pointer hover:bg-gray-50">
         <Image
@@ -87,22 +52,8 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
             {emotionEffectText()}
           </div>
         </div>
-
-        <div
-          className="text-2xl transition-transform duration-300"
-          style={{
-            transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        >
-          ▼
-        </div>
       </div>
-
-      <div
-        ref={detailsRef}
-        className="overflow-hidden"
-        style={{ height: 0, opacity: 0 }}
-      >
+      <div className="overflow-hidden">
         <div className="p-4 border-t-2" style={borderColor}>
           <p className="text-sm mb-3">{emotion.description}</p>
 
@@ -110,6 +61,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
             <div>
               <span className="font-bold">💪 Strong Against:</span>{" "}
               <span
+                className="font-semibold"
                 style={{
                   color: getColorOfEmotion(emotion.strong),
                 }}
@@ -120,6 +72,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
             <div>
               <span className="font-bold">💔 Weak Against:</span>{" "}
               <span
+                className="font-semibold"
                 style={{
                   color: getColorOfEmotion(emotion.weak),
                 }}
@@ -130,7 +83,7 @@ const MobileEmotionCard = ({ emotion }: EmotionCardProps) => {
           </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 
@@ -200,6 +153,7 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
           <div>
             <span className="font-bold">💪 Strong Against:</span>{" "}
             <span
+              className="font-semibold"
               style={{
                 color: getColorOfEmotion(emotion.strong),
               }}
@@ -210,6 +164,7 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
           <div>
             <span className="font-bold">💔 Weak Against:</span>{" "}
             <span
+              className="font-semibold"
               style={{
                 color: getColorOfEmotion(emotion.weak),
               }}
@@ -223,4 +178,4 @@ const DesktopEmotionCard = ({ emotion }: EmotionCardProps) => {
   );
 };
 
-export { MobileEmotionCard, DesktopEmotionCard };
+export { DesktopEmotionCard, MobileEmotionCard };
