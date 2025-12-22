@@ -293,6 +293,23 @@
   animation: sparkle 1.5s ease-in-out infinite;
 }
 
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+}
+
+.wave {
+  animation: wave 5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
