@@ -3,6 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "OMORI HEADSPACE",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   description:
     "A fan site dedicated to the game OMORI, exploring its characters, locations, quotes, and more.",
   icons: {
