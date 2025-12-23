@@ -18,6 +18,9 @@ const Locations = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" }) || false;
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const locs =
+    space === "headspace" ? locations.whitespace : locations.realWorld;
+
   const handleHydrated = useEffectEvent(() => {
     setHydrated(true);
   });
@@ -25,9 +28,6 @@ const Locations = () => {
   useEffect(() => {
     handleHydrated();
   }, []);
-
-  const locs =
-    space === "headspace" ? locations.whitespace : locations.realWorld;
 
   useGSAP(() => {
     if (!scrollRef.current || !hydrated) return;
@@ -76,7 +76,11 @@ const Locations = () => {
       xPercent: -100 * (locs.length - 1),
       ease: "none",
     });
-  }, [isMobile, hydrated]);
+
+    return () => {
+      tl.scrollTrigger?.kill();
+    };
+  }, [isMobile, hydrated, locs]);
 
   if (!hydrated) {
     return null;
@@ -85,6 +89,7 @@ const Locations = () => {
   return (
     <section
       id="locations"
+      key={locs.length}
       className={`relative min-h-screen bg-linear-to-b from-white via-gray-600 to-black flex items-center justify-center py-12 ${
         isMobile ? "px-6" : ""
       }`}
@@ -108,15 +113,23 @@ const Locations = () => {
             }`}
           >
             {isMobile ? (
-              <MobileLocationCard location={locs[0]} />
+              <MobileLocationCard location={locs[0]} space={space} />
             ) : (
-              <LocationCard location={locs[0]} />
+              <LocationCard location={locs[0]} space={space} />
             )}
             {locs.slice(1).map((location) => {
               return isMobile ? (
-                <MobileLocationCard key={location.name} location={location} />
+                <MobileLocationCard
+                  key={location.name}
+                  location={location}
+                  space={space}
+                />
               ) : (
-                <LocationCard key={location.name} location={location} />
+                <LocationCard
+                  key={location.name}
+                  location={location}
+                  space={space}
+                />
               );
             })}
           </div>
