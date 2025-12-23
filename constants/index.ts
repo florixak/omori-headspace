@@ -10,17 +10,21 @@ import {
   Smile,
   Star,
   Zap,
-  Moon,
+  Twitter,
+  Facebook,
+  Instagram,
   Trees,
+  Moon,
   Castle,
   Bug,
   Palmtree,
   Droplets,
   Fish,
   Eclipse,
-  Twitter,
-  Facebook,
-  Instagram,
+  Home,
+  House,
+  ShoppingCart,
+  Utensils,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -92,6 +96,11 @@ export interface Location {
   icon: ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>
   >;
+}
+
+interface Locations {
+  whitespace: Location[];
+  realWorld: Location[];
 }
 
 export interface Quote {
@@ -377,88 +386,132 @@ const emotions: Emotion[] = [
   },
 ];
 
-const locations: Location[] = [
-  {
-    name: "WHITESPACE",
-    description:
-      "A surreal, dream-like realm that serves as a hub connecting various locations in Omori's world.",
-    imgSrc: "/locations/whitespace.webp",
-    emoji: "⚪",
-    icon: Ghost,
-  },
-  {
-    name: "HEADSPACE",
-    description:
-      "The dream world where the story takes place, filled with memories and emotions.",
-    imgSrc: "/locations/headspace.webp",
-    emoji: "🌈",
-    icon: Star,
-  },
-  {
-    name: "VAST FOREST",
-    description:
-      "A dense and mysterious forest filled with towering trees and hidden secrets.",
-    imgSrc: "/locations/vast-forest.webp",
-    emoji: "🌲",
-    icon: Trees,
-  },
-  {
-    name: "OTHERWORLD",
-    description:
-      "A giant moon orbiting HEADSPACE. Luckily it never moves, as a ladder is the only means of getting there.",
-    imgSrc: "/locations/otherworld.webp",
-    emoji: "🌙",
-    icon: Moon,
-  },
-  {
-    name: "SWEETHEART'S CASTLE",
-    description:
-      "A grand and opulent castle filled with lavish decorations and a touch of whimsy.",
-    imgSrc: "/locations/sweethearts-castle.webp",
-    emoji: "🏰",
-    icon: Castle,
-  },
-  {
-    name: "PYREFLY FOREST",
-    description:
-      "A huge, mist covered forest surrounding a giant castle. Spiders prey on the weak, and shadows whisper in your ears.",
-    imgSrc: "/locations/pyrefly-forest.webp",
-    emoji: "🕷️",
-    icon: Bug,
-  },
-  {
-    name: "ORANGE OASIS",
-    description:
-      "Home of DINO'S DIG and a popular tourist spot, this desert oasis also holds its fair share of mystery.",
-    imgSrc: "/locations/orange-oasis.webp",
-    emoji: "🏜️",
-    icon: Palmtree,
-  },
-  {
-    name: "DEEPER WELL",
-    description:
-      "A dark underground passage that leads to forgotten memories and hidden truths beneath the surface.",
-    imgSrc: "/locations/deeper-well.webp",
-    emoji: "🕳️",
-    icon: Droplets,
-  },
-  {
-    name: "HUMPHREY",
-    description:
-      "A massive living whale that serves as both a location and a character, filled with bizarre internal landscapes.",
-    imgSrc: "/locations/humphrey.webp",
-    emoji: "🐋",
-    icon: Fish,
-  },
-  {
-    name: "BLACK SPACE",
-    description:
-      "A dark, surreal void filled with distorted memories and nightmarish imagery. The place where truth hides.",
-    imgSrc: "/locations/black-space.webp",
-    emoji: "⚫",
-    icon: Eclipse,
-  },
-];
+const locations: Locations = {
+  whitespace: [
+    {
+      name: "WHITESPACE",
+      description:
+        "A sparse, desolate, and monochromatic room, serving as OMORI's personal hub and starting point in HEADSPACE.",
+      imgSrc: "/locations/whitespace.webp",
+      emoji: "⚪",
+      icon: Ghost,
+    },
+    {
+      name: "VAST FOREST",
+      description:
+        "A sprawling, vibrant forest connecting many areas of HEADSPACE, filled with unique creatures and pathways.",
+      imgSrc: "/locations/vast-forest.webp",
+      emoji: "🌲",
+      icon: Trees,
+    },
+    {
+      name: "OTHERWORLD",
+      description:
+        "A futuristic, space-themed area atop a giant moon, filled with quirky characters and cosmic puzzles.",
+      imgSrc: "/locations/otherworld.webp",
+      emoji: "🚀",
+      icon: Moon,
+    },
+    {
+      name: "SWEETHEART'S CASTLE",
+      description:
+        "A flamboyant and extravagant castle ruled by the tyrannical DUCHESS SWEETHEART, a major antagonist in HEADSPACE.",
+      imgSrc: "/locations/sweethearts-castle.webp",
+      emoji: "🏰",
+      icon: Castle,
+    },
+    {
+      name: "PYREFLY FOREST",
+      description:
+        "A dark, eerie forest shrouded in mist, leading to SWEETHEART'S CASTLE and inhabited by various unsettling creatures.",
+      imgSrc: "/locations/pyrefly-forest.webp",
+      emoji: "🔦",
+      icon: Bug,
+    },
+    {
+      name: "ORANGE OASIS",
+      description:
+        "A cheerful desert region featuring DINO'S DIG, a train station, and various quirky attractions.",
+      imgSrc: "/locations/orange-oasis.webp",
+      emoji: "☀️",
+      icon: Palmtree,
+    },
+    {
+      name: "DEEPER WELL",
+      description:
+        "A sunken, aquatic area beneath the JUNKYARD, leading to the ABYSS and deeper parts of HEADSPACE.",
+      imgSrc: "/locations/deeper-well.webp",
+      emoji: "🌊",
+      icon: Droplets,
+    },
+    {
+      name: "HUMPHREY",
+      description:
+        "A massive, sentient whale that swallows the friends, containing various biomes and serving as a complex dungeon.",
+      imgSrc: "/locations/humphrey.webp",
+      emoji: "🐳",
+      icon: Fish,
+    },
+    {
+      name: "BLACK SPACE",
+      description:
+        "A nightmarish, distorted void filled with disturbing imagery and fragmented memories, representing SUNNY's repressed trauma.",
+      imgSrc: "/locations/black-space.webp",
+      emoji: "⚫",
+      icon: Eclipse,
+    },
+  ],
+  realWorld: [
+    {
+      name: "FARAWAY TOWN",
+      description:
+        "The quaint, suburban town where SUNNY and his friends live. It's a peaceful place, but holds many memories and unresolved conflicts.",
+      imgSrc: "/locations/faraway-town.webp",
+      emoji: "🏡",
+      icon: Home,
+    },
+    {
+      name: "SUNNY'S HOUSE",
+      description:
+        "SUNNY's home in FARAWAY TOWN, where he has lived in isolation for years. A central point for his real-world journey.",
+      imgSrc: "/locations/sunny-house.webp",
+      emoji: "🏚️",
+      icon: House,
+    },
+    {
+      name: "BASIL'S HOUSE",
+      description:
+        "BASIL's home, located near SUNNY's. It becomes a focal point for confrontations and revelations in the real world.",
+      imgSrc: "/locations/basil-house.webp",
+      emoji: "🏡",
+      icon: Leaf,
+    },
+    {
+      name: "HOBBEEZ",
+      description:
+        "A local convenience store in FARAWAY TOWN, a common hangout for KEL and the group.",
+      imgSrc: "/locations/hobbeez.webp",
+      emoji: "🏪",
+      icon: ShoppingCart,
+    },
+    {
+      name: "OTHER MARTIN'S",
+      description:
+        "A Fast-Food restaurant in FARAWAY TOWN, another common hangout and a place where KEL frequently eats.",
+      imgSrc: "/locations/other-martins.webp",
+      emoji: "🍔",
+      icon: Utensils,
+    },
+    {
+      name: "FARAWAY PARK",
+      description:
+        "A local park in FARAWAY TOWN, a place of past memories and current tensions for the friend group.",
+      imgSrc: "/locations/faraway-park.webp",
+      emoji: "🌳",
+      icon: Trees,
+    },
+  ],
+};
 
 const quotes: Quote[] = [
   {
