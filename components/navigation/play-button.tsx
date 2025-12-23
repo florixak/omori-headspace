@@ -15,7 +15,7 @@ const PlayButton = ({
     <button
       onClick={toggleRunning}
       aria-label={isRunning ? "Pause Quotes" : "Play Quotes"}
-      className={`rpg-border px-4 py-2 flex items-center justify-center rounded transition-all duration-300 w-auto sm:w-28
+      className={`rpg-border px-4 py-2 flex items-center justify-center rounded transition-all duration-300 w-auto sm:w-28 cursor-pointer
         ${
           isHeadspace
             ? "bg-(--omori-black) text-(--omori-white) hover:bg-(--omori-purple)"
