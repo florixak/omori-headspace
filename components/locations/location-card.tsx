@@ -46,7 +46,7 @@ const LocationCard = ({ location }: LocationProps) => {
         <div className="absolute top-8 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10"></div>
         <div className="relative w-full max-w-xl h-64 mb-8 rpg-border pixel-corners overflow-hidden shadow-xl">
           <Image
-            src={location.imgSrc}
+            src={location.imgSrc || ""}
             alt={location.name}
             fill
             className="object-cover pixel-corners"
