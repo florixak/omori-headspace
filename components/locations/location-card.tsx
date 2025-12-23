@@ -1,13 +1,16 @@
 "use client";
 
 import type { Location } from "@/constants";
+import { SpaceStore } from "@/store/space-store";
 import Image from "next/image";
 
 interface LocationProps {
   location: Location;
+  space: SpaceStore["space"];
 }
 
-const MobileLocationCard = ({ location }: LocationProps) => {
+const MobileLocationCard = ({ location, space }: LocationProps) => {
+  const isHeadspace = space === "headspace";
   return (
     <div className="relative emotions-bg flex flex-col items-center justify-center p-4 md:p-8 rpg-border pixel-corners shadow-xl w-full max-w-sm min-h-96">
       <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10 md:w-32 md:h-6 md:top-8"></div>
@@ -24,7 +27,11 @@ const MobileLocationCard = ({ location }: LocationProps) => {
         />
       </div>
 
-      <h1 className="pixel-text text-xl md:text-2xl font-bold text-(--omori-purple) mb-2 text-center drop-shadow">
+      <h1
+        className={`pixel-text text-xl md:text-2xl font-bold ${
+          isHeadspace ? "text-(--omori-purple)" : "text-(--omori-green)"
+        } mb-2 text-center drop-shadow`}
+      >
         {location.emoji} {location.name}
       </h1>
 
@@ -39,14 +46,15 @@ const MobileLocationCard = ({ location }: LocationProps) => {
   );
 };
 
-const LocationCard = ({ location }: LocationProps) => {
+const LocationCard = ({ location, space }: LocationProps) => {
+  const isHeadspace = space === "headspace";
   return (
     <section className="min-h-screen min-w-full flex items-center justify-center">
       <div className="relative emotions-bg flex flex-col items-center justify-center p-8 md:p-16 lg:p-36 rpg-border pixel-corners shadow-xl">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200 opacity-70 rotate-[-8deg] rounded-sm z-10"></div>
         <div className="relative w-full max-w-xl h-64 mb-8 rpg-border pixel-corners overflow-hidden shadow-xl">
           <Image
-            src={location.imgSrc}
+            src={location.imgSrc || ""}
             alt={location.name}
             fill
             className="object-cover pixel-corners"
@@ -55,7 +63,11 @@ const LocationCard = ({ location }: LocationProps) => {
           />
         </div>
 
-        <h1 className="pixel-text text-3xl font-bold text-(--omori-purple) mb-4 text-center drop-shadow">
+        <h1
+          className={`pixel-text text-3xl font-bold ${
+            isHeadspace ? "text-(--omori-purple)" : "text-(--omori-black)"
+          } mb-4 text-center drop-shadow`}
+        >
           {location.name}
         </h1>
 
@@ -72,4 +84,4 @@ const LocationCard = ({ location }: LocationProps) => {
   );
 };
 
-export { MobileLocationCard, LocationCard };
+export { LocationCard, MobileLocationCard };

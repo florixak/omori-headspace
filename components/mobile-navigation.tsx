@@ -5,7 +5,6 @@ import NavLink from "./nav-link";
 import { useEffect, useEffectEvent, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Image from "next/image";
 import HeadspaceSnake from "./navigation/headspace-snake";
 
 interface MobileNavigationProps {
