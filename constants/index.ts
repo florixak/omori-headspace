@@ -1,30 +1,29 @@
 import {
+  Bug,
+  Castle,
+  Droplets,
+  Eclipse,
+  Facebook,
+  Fish,
   Flame,
   Flower,
   Frown,
   Ghost,
   Heart,
-  Leaf,
-  LucideProps,
-  Shield,
-  Smile,
-  Star,
-  Zap,
-  Twitter,
-  Facebook,
-  Instagram,
-  Trees,
-  Moon,
-  Castle,
-  Bug,
-  Palmtree,
-  Droplets,
-  Fish,
-  Eclipse,
   Home,
   House,
+  Instagram,
+  Leaf,
+  LucideProps,
+  Moon,
+  Palmtree,
+  Shield,
   ShoppingCart,
-  Utensils,
+  Smile,
+  Star,
+  Trees,
+  Twitter,
+  Zap,
 } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
@@ -463,14 +462,6 @@ const locations: Locations = {
   ],
   realWorld: [
     {
-      name: "FARAWAY TOWN",
-      description:
-        "The quaint, suburban town where SUNNY and his friends live. It's a peaceful place, but holds many memories and unresolved conflicts.",
-      imgSrc: "/locations/faraway-town.webp",
-      emoji: "🏡",
-      icon: Home,
-    },
-    {
       name: "SUNNY'S HOUSE",
       description:
         "SUNNY's home in FARAWAY TOWN, where he has lived in isolation for years. A central point for his real-world journey.",
@@ -479,12 +470,20 @@ const locations: Locations = {
       icon: House,
     },
     {
-      name: "BASIL'S HOUSE",
+      name: "FARAWAY PARK",
       description:
-        "BASIL's home, located near SUNNY's. It becomes a focal point for confrontations and revelations in the real world.",
-      imgSrc: "/locations/basil-house.webp",
+        "A local park in FARAWAY TOWN, a place of past memories and current tensions for the friend group.",
+      imgSrc: "/locations/faraway-park.webp",
+      emoji: "🌳",
+      icon: Trees,
+    },
+    {
+      name: "TREEHOUSE",
+      description:
+        "The childhood hideout for SUNNY and his friends, filled with nostalgic items and memories. Now abandoned.",
+      imgSrc: "/locations/treehouse.webp",
       emoji: "🏡",
-      icon: Leaf,
+      icon: Home,
     },
     {
       name: "HOBBEEZ",
@@ -495,20 +494,12 @@ const locations: Locations = {
       icon: ShoppingCart,
     },
     {
-      name: "OTHER MARTIN'S",
+      name: "BASIL'S HOUSE",
       description:
-        "A Fast-Food restaurant in FARAWAY TOWN, another common hangout and a place where KEL frequently eats.",
-      imgSrc: "/locations/other-martins.webp",
-      emoji: "🍔",
-      icon: Utensils,
-    },
-    {
-      name: "FARAWAY PARK",
-      description:
-        "A local park in FARAWAY TOWN, a place of past memories and current tensions for the friend group.",
-      imgSrc: "/locations/faraway-park.webp",
-      emoji: "🌳",
-      icon: Trees,
+        "BASIL's home, located near SUNNY's. It becomes a focal point for confrontations and revelations in the real world.",
+      imgSrc: "/locations/basil-house.webp",
+      emoji: "🏡",
+      icon: Leaf,
     },
   ],
 };
@@ -744,12 +735,12 @@ const socials: Social[] = [
 ];
 
 export {
-  navLinks,
-  floatingEmojis,
   characters,
   emotions,
+  floatingEmojis,
   locations,
-  quotes,
+  navLinks,
   photos,
+  quotes,
   socials,
 };
