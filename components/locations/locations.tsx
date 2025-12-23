@@ -8,10 +8,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "react-responsive";
 import Title from "../title";
+import useSpaceStore from "@/store/space-store";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Locations = () => {
+  const { space } = useSpaceStore();
   const [hydrated, setHydrated] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" }) || false;
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -23,6 +25,9 @@ const Locations = () => {
   useEffect(() => {
     handleHydrated();
   }, []);
+
+  const locs =
+    space === "headspace" ? locations.whitespace : locations.realWorld;
 
   useGSAP(() => {
     if (!scrollRef.current || !hydrated) return;
@@ -68,7 +73,7 @@ const Locations = () => {
     });
 
     tl.to(scrollRef.current, {
-      xPercent: -100 * (locations.length - 1),
+      xPercent: -100 * (locs.length - 1),
       ease: "none",
     });
   }, [isMobile, hydrated]);
@@ -103,11 +108,11 @@ const Locations = () => {
             }`}
           >
             {isMobile ? (
-              <MobileLocationCard location={locations[0]} />
+              <MobileLocationCard location={locs[0]} />
             ) : (
-              <LocationCard location={locations[0]} />
+              <LocationCard location={locs[0]} />
             )}
-            {locations.slice(1).map((location) => {
+            {locs.slice(1).map((location) => {
               return isMobile ? (
                 <MobileLocationCard key={location.name} location={location} />
               ) : (
