@@ -89,7 +89,7 @@ const Locations = () => {
   return (
     <section
       id="locations"
-      key={locs.length}
+      key={space}
       className={`relative min-h-screen bg-linear-to-b from-white via-gray-600 to-black flex items-center justify-center py-12 ${
         isMobile ? "px-6" : ""
       }`}
