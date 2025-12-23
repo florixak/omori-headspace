@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { RefObject } from "react";
 import { create } from "zustand";
 
-interface SpaceStore {
+export interface SpaceStore {
   space: "headspace" | "real-world";
   toggleSpace: (ref: RefObject<HTMLDivElement | null>) => void;
 }
