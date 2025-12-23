@@ -76,7 +76,7 @@ const Navigation = ({
               aria-label={`Select Page ${index + 1}`}
               aria-current={index === page ? "page" : undefined}
               onClick={() => setPage(index)}
-              className={`w-3 h-3 border-2 border-(--omori-black) transition-all duration-300 ${
+              className={`w-3 h-3 border-2 border-(--omori-black) transition-all duration-300 cursor-pointer ${
                 index === page
                   ? `${
                       isHeadspace ? "bg-(--omori-purple)" : "bg-(--kel-orange)"
