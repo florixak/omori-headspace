@@ -62,7 +62,7 @@ const SpoilerWarning = () => {
                       ${
                         isHeadspace
                           ? "hover:bg-(--omori-purple)"
-                          : "hover:bg-(--omori-black)"
+                          : "hover:bg-(--kel-orange)"
                       }
                     `}
             >
