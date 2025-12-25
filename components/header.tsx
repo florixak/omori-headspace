@@ -10,9 +10,9 @@ import MobileNavigation from "./mobile-navigation";
 import NavLink from "./nav-link";
 
 const Header = () => {
+  const { space } = useSpaceStore();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const { space } = useSpaceStore();
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 100);

@@ -9,9 +9,9 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const Hero = () => {
+  const { toggleSpace, space } = useSpaceStore();
   const heroRef = useRef<HTMLDivElement>(null);
   const omoriRef = useRef<HTMLDivElement>(null);
-  const { toggleSpace, space } = useSpaceStore();
 
   const isHeadspace = space === "headspace";
 

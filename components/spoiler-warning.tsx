@@ -13,10 +13,6 @@ const SpoilerWarning = () => {
   const [shouldRender, setShouldRender] = useState(true);
   const warningRef = useRef<HTMLDivElement>(null);
 
-  const hideWarning = () => {
-    setShowWarning(false);
-  };
-
   useGSAP(() => {
     if (!warningRef.current) return;
 
@@ -44,6 +40,10 @@ const SpoilerWarning = () => {
   if (!shouldRender) return null;
 
   const isHeadspace = space === "headspace";
+
+  const hideWarning = () => {
+    setShowWarning(false);
+  };
 
   return (
     <div ref={warningRef} className="fixed z-1000 bottom-4 right-0">
