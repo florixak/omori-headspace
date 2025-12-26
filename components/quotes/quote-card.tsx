@@ -54,7 +54,10 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   };
 
   return (
-    <div ref={quoteContainerRef} className="w-full h-[250px] md:h-[300px]">
+    <div
+      ref={quoteContainerRef}
+      className="w-full h-[250px] md:h-[300px] overflow-hidden"
+    >
       <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6 bg-(--omori-white) h-full">
         <QuoteIcon className="absolute top-8 transform -translate-x-1/2 left-1/2 size-4 sm:size-6 md:size-8 mb-4 text-(--omori-black) opacity-50" />
         <p
