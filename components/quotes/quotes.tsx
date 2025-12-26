@@ -42,7 +42,7 @@ const Quotes = () => {
       id="quotes"
       className="min-h-screen flex items-center justify-center px-6"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-3xl mx-auto">
         <Title
           heading="MEMORABLE QUOTES"
           title="WORDS TO REMEMBER"
