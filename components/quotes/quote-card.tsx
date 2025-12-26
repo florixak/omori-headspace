@@ -56,17 +56,17 @@ const QuoteCard = ({ currentQuote }: QuoteCardProps) => {
   return (
     <div
       ref={quoteContainerRef}
-      className="max-w-6xl w-full min-h-[200px] md:min-h-[300px] "
+      className="w-full h-[250px] md:h-[300px] overflow-hidden"
     >
-      <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6 bg-(--omori-white)">
-        <QuoteIcon className="w-8 h-8 mb-4 text-(--omori-black) opacity-50" />
+      <div className="relative flex flex-col items-center justify-center text-center battle-box gap-6 bg-(--omori-white) h-full">
+        <QuoteIcon className="absolute top-8 transform -translate-x-1/2 left-1/2 size-4 sm:size-6 md:size-8 mb-4 text-(--omori-black) opacity-50" />
         <p
           ref={quoteRef}
-          className="italic text-(--omori-black) text-lg sm:text-2xl mb-6 leading-relaxed max-w-2xl"
+          className="italic text-(--omori-black) text-base sm:text-lg md:text-2xl leading-relaxed max-w-2xl"
         >
           &#34;{quote.text || "No quote available"}&#34;
         </p>
-        <div className="flex items-center justify-center gap-2">
+        <div className="absolute bottom-8 flex items-center justify-center gap-2">
           <div className="h-px w-8 bg-(--omori-black) opacity-30" />
           <p className="text-sm opacity-70 uppercase tracking-wider">
             {quote.author || "Unknown Author"}
