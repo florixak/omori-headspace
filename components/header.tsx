@@ -5,7 +5,7 @@ import useSpaceStore from "@/store/space-store";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MobileNavigation from "./mobile-navigation";
 import NavLink from "./nav-link";
 
@@ -13,9 +13,21 @@ const Header = () => {
   const { space } = useSpaceStore();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const rafIdRef = useRef<number | null>(null);
+  const isScrolledRef = useRef(false);
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 100);
+    if (rafIdRef.current !== null) return;
+
+    rafIdRef.current = window.requestAnimationFrame(() => {
+      rafIdRef.current = null;
+
+      const nextScrolled = window.scrollY > 100;
+      if (isScrolledRef.current === nextScrolled) return;
+
+      isScrolledRef.current = nextScrolled;
+      setIsScrolled(nextScrolled);
+    });
   };
 
   const toggleMenu = () => {
@@ -23,8 +35,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
+      if (rafIdRef.current !== null) {
+        window.cancelAnimationFrame(rafIdRef.current);
+      }
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
